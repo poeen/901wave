@@ -151,7 +151,7 @@ extension MainView : MKMapViewDelegate {
         pinView?.canShowCallout = true
         let smallSquare = CGSize(width: 30, height: 30)
         let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
-        button.setBackgroundImage(UIImage(named: "Blue Circle"), for: UIControlState())
+        button.setBackgroundImage(UIImage(named: "Blue_circle"), for: UIControlState())
         button.addTarget(self, action: #selector(MainView.getDirections), for: .touchUpInside)
         pinView?.leftCalloutAccessoryView = button
         

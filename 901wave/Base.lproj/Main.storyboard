@@ -62,8 +62,11 @@
                                     <action selector="logoutPressed:" destination="GhX-Uq-6fE" eventType="touchUpInside" id="FqL-OC-ETU"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MBL-d1-Ocl">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBL-d1-Ocl">
                                 <rect key="frame" x="0.0" y="28" width="375" height="593"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GhX-Uq-6fE" id="75p-rW-qlz"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
