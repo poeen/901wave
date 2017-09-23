@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_01wave" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFP-SY-50K">
+                                <rect key="frame" x="116.5" y="551" width="141" height="30"/>
+                                <state key="normal" title="Login with Facebook"/>
+                                <connections>
+                                    <action selector="loginWithFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O3h-ar-8AU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xFP-SY-50K" secondAttribute="bottom" constant="86" id="CLp-zV-6ht"/>
+                            <constraint firstItem="xFP-SY-50K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jhd-uC-NDq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="GhX-Uq-6fE" kind="show" identifier="toMainFeed" id="yAc-Vx-6Lp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-326" y="31"/>
+        </scene>
+        <!--Main View-->
+        <scene sceneID="D0Q-oK-jjb">
+            <objects>
+                <viewController id="GhX-Uq-6fE" customClass="MainView" customModule="_01wave" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B4e-Kw-LBj"/>
+                        <viewControllerLayoutGuide type="bottom" id="8df-f0-58p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NHt-QC-zAN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvz-xl-lu3">
+                                <rect key="frame" x="163" y="629" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="GhX-Uq-6fE" eventType="touchUpInside" id="FqL-OC-ETU"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MBL-d1-Ocl">
+                                <rect key="frame" x="0.0" y="28" width="375" height="593"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MBL-d1-Ocl" firstAttribute="top" secondItem="B4e-Kw-LBj" secondAttribute="bottom" constant="8" id="1Xx-6u-ajQ"/>
+                            <constraint firstItem="MBL-d1-Ocl" firstAttribute="leading" secondItem="NHt-QC-zAN" secondAttribute="leading" id="8td-h9-Jeg"/>
+                            <constraint firstItem="8df-f0-58p" firstAttribute="top" secondItem="Lvz-xl-lu3" secondAttribute="bottom" constant="8" id="CEs-Gh-Kk7"/>
+                            <constraint firstItem="Lvz-xl-lu3" firstAttribute="centerX" secondItem="NHt-QC-zAN" secondAttribute="centerX" id="q7J-uD-KkC"/>
+                            <constraint firstItem="Lvz-xl-lu3" firstAttribute="top" secondItem="MBL-d1-Ocl" secondAttribute="bottom" constant="8" id="s7K-KK-rGx"/>
+                            <constraint firstAttribute="trailing" secondItem="MBL-d1-Ocl" secondAttribute="trailing" id="yEL-rd-D7S"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="MBL-d1-Ocl" id="P3w-n8-oCY"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logout" id="C6i-xq-ZuU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HYK-vq-WXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="29.23538230884558"/>
+        </scene>
+    </scenes>
+</document>
