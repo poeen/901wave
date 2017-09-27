@@ -8,102 +8,86 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>FBSDKLoginKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
+		</dict>
+		<key>GeoFire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Pods-901wave.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>Pods-901waveTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
 		</dict>
 		<key>Pods-901waveUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 		<key>Protobuf.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>11</integer>
 		</dict>
 		<key>SwiftKeychainWrapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>12</integer>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0EAF0F62FD5B6CC5A6527187D43DDF32</key>
+		<key>0B8E38BAD0DF639399DF954241FECEBC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>266AE1506DAD13D34C0725E909C0C476</key>
+		<key>0CD4C91F12019217FC0180E8FA26C01F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>136CF81C8265062A354C93115C010C74</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -113,12 +97,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>42E6C3B3F68E685443CD2456EE94563A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D5CEDECD3D8DC52EA507E0431BDA8A0</key>
+		<key>55F1F3C545861F6A24B13F61F61BC291</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>73DE23CE98E432D6BE867022B384FE1C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>907B454A85B8331F1492B4D1586CC9BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -143,22 +142,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC8B6E28BE08F52D6ABDCCDC78DF4D2D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D8ECAFD941B1E9CBA87568B94BE7A80B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ECE51D7278408F1724F1E674F2BF4430</key>
 		<dict>
 			<key>primary</key>
 			<true/>

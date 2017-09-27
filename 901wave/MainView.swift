@@ -13,6 +13,8 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 import MapKit
+import GeoFire
+
 protocol HandleMapSearch: class {
     func dropPinZoomIn(_ placemark:MKPlacemark)
 }
@@ -32,16 +34,7 @@ class MainView: UIViewController {
   
    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    var userLocation: CLLocation? = nil
     
     
     override func viewDidLoad() {
@@ -50,8 +43,12 @@ class MainView: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+        print(mapView.userLocation.coordinate)
+        
 
     }
+    
+    
     
     func getDirections(){
         selectedMapItem = Event(title: locationTitle, address: address!)
@@ -74,14 +71,15 @@ extension MainView : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
+        guard var location = locations.last else { return }
+        userLocation = location
         let span = MKCoordinateSpanMake(0.04, 0.04)
-        let region = MKCoordinateRegion(center: location.coordinate, span: span)
-        mapView.setRegion(region, animated: true)
+        var region = MKCoordinateRegion(center: location.coordinate, span: span)
+        mapView.setRegion(region, animated:false)
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = category
         request.region = mapView.region
-        let search = MKLocalSearch(request: request)
+       /* let search = MKLocalSearch(request: request)
         search.start { response, error in
             guard let response = response else {
                 print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
@@ -101,7 +99,7 @@ extension MainView : CLLocationManagerDelegate {
                 
             }
             
-        }
+        }*/
         
         
     }

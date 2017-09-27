@@ -14,6 +14,7 @@ pod 'FBSDKLoginKit'
 pod 'SwiftKeychainWrapper'
 pod 'IQKeyboardManagerSwift'
 pod 'Firebase/Messaging'
+pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
 
   target '901waveTests' do
     inherit! :search_paths
