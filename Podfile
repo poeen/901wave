@@ -12,7 +12,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Storage'
 pod 'FBSDKLoginKit'
 pod 'SwiftKeychainWrapper'
-pod 'IQKeyboardManagerSwift'
+#pod 'IQKeyboardManagerSwift'
 pod 'Firebase/Messaging'
 pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
 

@@ -27,7 +27,6 @@ class MainView: UIViewController {
     var category = ""
     var locationTitle = (String)()
     var address: String?
-    
     let locationManager = CLLocationManager()
     
     @IBOutlet weak var mapView: MKMapView!
@@ -43,6 +42,8 @@ class MainView: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+        self.locationManager.requestAlwaysAuthorization()
+
         print(mapView.userLocation.coordinate)
         
 
@@ -61,6 +62,11 @@ class MainView: UIViewController {
         try! Auth.auth().signOut()
         performSegue(withIdentifier: "logout", sender: self)
     }
+    override func viewDidAppear(_ animated: Bool) {
+        print("View did appear happened")
+
+        
+    }
 }
 extension MainView : CLLocationManagerDelegate {
     
@@ -76,10 +82,11 @@ extension MainView : CLLocationManagerDelegate {
         let span = MKCoordinateSpanMake(0.04, 0.04)
         var region = MKCoordinateRegion(center: location.coordinate, span: span)
         mapView.setRegion(region, animated:false)
+        
         let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = category
+        request.naturalLanguageQuery = "bars"
         request.region = mapView.region
-       /* let search = MKLocalSearch(request: request)
+        let search = MKLocalSearch(request: request)
         search.start { response, error in
             guard let response = response else {
                 print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
@@ -90,17 +97,15 @@ extension MainView : CLLocationManagerDelegate {
                 // Display the received items
                 let annotation = MKPointAnnotation()
                 annotation.title = item.name
-                annotation.subtitle = "Address: \(item.placemark)"
+                annotation.subtitle = "Wave Intensity: 1"
                 annotation.coordinate = item.placemark.coordinate
                 print(item.placemark.coordinate)
-                print("Hi")
-                print(item.url)
                 self.mapView.addAnnotation(annotation)
                 
             }
             
-        }*/
-        
+        }
+
         
     }
     
@@ -152,13 +157,21 @@ extension MainView : MKMapViewDelegate {
         button.setBackgroundImage(UIImage(named: "Blue_circle"), for: UIControlState())
         button.addTarget(self, action: #selector(MainView.getDirections), for: .touchUpInside)
         pinView?.leftCalloutAccessoryView = button
-        
+        let geofireRef = Database.database().reference()
+
+        let geoFire = GeoFire(firebaseRef: geofireRef)
+
+        let center = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+
+        // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
+        geoFire?.query(at: center, withRadius: 0.3).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
+            
+            geofireRef.child("Wave").childByAutoId().setValue(["title": annotation.title, "location":"NaN"])
+            
+
+            print("Key '\(key)' entered the search area and is at location '\(location)'")
+        })
         return pinView
     }
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        locationTitle = ((view.annotation?.title)!)!
-        address = (view.annotation?.subtitle)!
-        //currentAnnotation = view.annotation
-        
-    }
+
 }
