@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        
+        locationManager.distanceFilter = 10
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
 
         return true
