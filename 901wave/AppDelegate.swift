@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         
-        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
 
         return true
     }
@@ -43,13 +43,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
-
+    
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        locationManager.startMonitoringSignificantLocationChanges()
+       
         
+            if Auth.auth().currentUser?.uid != nil {
+                locationManager.startUpdatingLocation()
+        }
+        
+
 
 
     }
@@ -60,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        //locationManager.startUpdatingLocation()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -74,17 +80,17 @@ extension AppDelegate: CLLocationManagerDelegate {
         guard var location = locations.last else { return }
         currentLocation = location
         print("KAreem was here")
-        let geofireRef = Database.database().reference()
+        let geofireRef = DataService.ds.REF_USER_CURRENT
         let geoFire = GeoFire(firebaseRef: geofireRef)
-        geoFire?.setLocation(CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), forKey: "firebase-hq") { (error) in
+        geoFire?.setLocation(CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), forKey: "Location") { (error) in
             if (error != nil) {
                 print("An error occured: \(error)")
             } else {
+                print(location)
                 print("Saved location successfully!")
+                print(Auth.auth().currentUser?.uid)
             }
         }
-        
     }
-    
 }
 

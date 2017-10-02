@@ -58,7 +58,6 @@
 		616D1E4C1F60BAA200FBCCDE /* 901waveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 901waveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		616D1E501F60BAA200FBCCDE /* _01waveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _01waveUITests.swift; sourceTree = "<group>"; };
 		616D1E521F60BAA200FBCCDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		61A0811B1F806F8500BD27DD /* 901wave-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "901wave-Bridging-Header.h"; sourceTree = "<group>"; };
 		7434936214AA0277EE87F4CA /* Pods-901wave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-901wave.debug.xcconfig"; path = "Pods/Target Support Files/Pods-901wave/Pods-901wave.debug.xcconfig"; sourceTree = "<group>"; };
 		7469284B1F75D8B200973845 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7469284E1F75DA1B00973845 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -109,7 +108,6 @@
 				616D1E2E1F60BAA200FBCCDE /* Products */,
 				7254855DD14456A1217798B2 /* Pods */,
 				BA3BA9904039D3412C20BC8D /* Frameworks */,
-				61A0811B1F806F8500BD27DD /* 901wave-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,6 +276,11 @@
 						DevelopmentTeam = 29AHJLC5RL;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					616D1E401F60BAA200FBCCDE = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -679,7 +682,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.poeen.901wave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "901wave-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -697,7 +700,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.poeen.901wave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "901wave-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

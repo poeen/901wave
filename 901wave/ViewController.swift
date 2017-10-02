@@ -19,15 +19,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let geofireRef = Database.database().reference()
+        /*let geofireRef = DataService.ds.REF_USER_CURRENT
         let geoFire = GeoFire(firebaseRef: geofireRef)
-        geoFire?.setLocation(CLLocation(latitude: 37.7853889, longitude: -122.4056973), forKey: "firebase-hq") { (error) in
+        geoFire?.setLocation(CLLocation(latitude: 37.7853889, longitude: -122.4056973), forKey: "Location") { (error) in
             if (error != nil) {
                 print("An error occured: \(error)")
             } else {
                 print("Saved location successfully!")
             }
         }
+ */
     }
 
   

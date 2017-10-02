@@ -45,12 +45,42 @@ class MainView: UIViewController {
         self.locationManager.requestAlwaysAuthorization()
 
         print(mapView.userLocation.coordinate)
-        
-
+       
+        getFacebookUserInfo()
     }
     
+    func getFacebookUserInfo() {
+        if(FBSDKAccessToken.current() != nil)
+        {
+            //print permissions, such as public_profile
+            print("Umer The permissions are \(FBSDKAccessToken.current().permissions)")
+            let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields" : "id, name, email"])
+            let connection = FBSDKGraphRequestConnection()
+            
+            connection.add(graphRequest, completionHandler: { (connection, result, error) -> Void in
+                
+                let data = result as! [String : AnyObject]
+                
+                var name = data["name"] as? String
+                
+                DataService.ds.REF_USER_CURRENT.child("Name").observeSingleEvent(of: .value, with: { (snapshot) in
+                    if snapshot.exists() {
+                        
+                    }
+                    else{
+                DataService.ds.REF_USER_CURRENT.child("Name").setValue(name)
+                    }
+                })
+            connection?.start()
+        })
+        
+    }
+}
     
     
+
+    
+
     func getDirections(){
         selectedMapItem = Event(title: locationTitle, address: address!)
         self.performSegue(withIdentifier: "back", sender: self)

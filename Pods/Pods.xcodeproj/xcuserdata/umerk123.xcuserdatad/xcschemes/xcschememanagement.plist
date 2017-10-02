@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>IQKeyboardManagerSwift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-901wave.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,6 +87,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1ACB7CB892E0255763E3B80477337536</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>320A50C9A83616ABF4B35629602A7943</key>
 		<dict>
 			<key>primary</key>
@@ -107,17 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>55F1F3C545861F6A24B13F61F61BC291</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>73DE23CE98E432D6BE867022B384FE1C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>907B454A85B8331F1492B4D1586CC9BB</key>
+		<key>A1BF86DB74FA2CCE72F020DF629B8D4A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,7 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C235F77E101E742652CCF98FFDFA5182</key>
+		<key>C24AB18F29093BC0129A901E9E2788DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

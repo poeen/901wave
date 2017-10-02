@@ -158,7 +158,6 @@
 		60C8C77F1AACF31ABFB396F2B557BF94 /* pb_common.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C08D061029EA2D9D16A5B1F55134021 /* pb_common.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc -fno-objc-arc -fno-objc-arc"; }; };
 		610CF3A0227BF99BD5D6EFA7A69A7C04 /* FBSDKTestUsersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE53E721AF71B3628269BDCE2D1C537 /* FBSDKTestUsersManager.m */; };
 		619F308ADA1F66BA128318455FC99AA2 /* FBSDKAppLinkUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = BA7679BECED0619D20CB3AC335005BEE /* FBSDKAppLinkUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61A081201F80732000BD27DD /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E068059B96CDC79DA1FB356EFE856D /* FirebaseDatabase.framework */; };
 		621D2E70A1BF24575BAAFCF8E7996B48 /* GFRegionQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = DFFEFA02379F2CEBFD7CB03D98D64B18 /* GFRegionQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6384F58451239E1B2C9DCB347CEB0F12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA96B9A0688F0BF1D00C555B8CBC337 /* Foundation.framework */; };
 		63A49532C857D4508B8112C46EB1E501 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A57AF5E656D5D233878E88CCD17A23 /* FBSDKCoreKit.framework */; };
@@ -192,6 +191,7 @@
 		72FB0A0B7CC16F19E94D1790A4C4FBCC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A14773E81CA95363E364FF1D2B518 /* CoreLocation.framework */; };
 		7357F283046E9E694E441D6895AB0ADA /* FBSDKBridgeAPIProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 686A7A9EEF75495D1D9855A057C24A7A /* FBSDKBridgeAPIProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		73919E8D3AF7108FB1652D2CDB10D242 /* iterator.cc in Sources */ = {isa = PBXBuildFile; fileRef = 2076A3D441675BAF7C6706996AE784DD /* iterator.cc */; settings = {COMPILER_FLAGS = "-DOS_MACOSX -DLEVELDB_PLATFORM_POSIX -fno-objc-arc"; }; };
+		746928621F82DE7D00973845 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E068059B96CDC79DA1FB356EFE856D /* FirebaseDatabase.framework */; };
 		7509627C97BE328428F0D1EA18C9C639 /* BFTaskCompletionSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 646E2B69E862F596FE662BB13793533C /* BFTaskCompletionSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		752F4F79861843E7BD13DC8A4A2C9916 /* FBSDKProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 09AC8491DA03A17283D4FF43486866DC /* FBSDKProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7689AABC2DE09AFB08548E1F4DEECC0B /* write_batch.h in Headers */ = {isa = PBXBuildFile; fileRef = EE93DC23CA06C3F3AC2673BB5ECE7283 /* write_batch.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1080,7 +1080,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61A081201F80732000BD27DD /* FirebaseDatabase.framework in Frameworks */,
+				746928621F82DE7D00973845 /* FirebaseDatabase.framework in Frameworks */,
 				72FB0A0B7CC16F19E94D1790A4C4FBCC /* CoreLocation.framework in Frameworks */,
 				25879CDBE7CF862BA00EEB95CD33F310 /* Foundation.framework in Frameworks */,
 				36897F1A564529FA0F6EDC6E56978E5A /* GoogleToolboxForMac.framework in Frameworks */,
