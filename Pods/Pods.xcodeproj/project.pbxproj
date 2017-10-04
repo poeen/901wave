@@ -157,6 +157,7 @@
 		60550CBEF2A1ECB61FAA64CE35685B66 /* FBSDKTriStateBOOL.m in Sources */ = {isa = PBXBuildFile; fileRef = F07D8E55A2029C14A8620B168890460B /* FBSDKTriStateBOOL.m */; };
 		60C8C77F1AACF31ABFB396F2B557BF94 /* pb_common.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C08D061029EA2D9D16A5B1F55134021 /* pb_common.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc -fno-objc-arc -fno-objc-arc"; }; };
 		610CF3A0227BF99BD5D6EFA7A69A7C04 /* FBSDKTestUsersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE53E721AF71B3628269BDCE2D1C537 /* FBSDKTestUsersManager.m */; };
+		6148BD621F85778500A9A165 /* VenueDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6148BD611F85778500A9A165 /* VenueDetailedViewController.swift */; };
 		619F308ADA1F66BA128318455FC99AA2 /* FBSDKAppLinkUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = BA7679BECED0619D20CB3AC335005BEE /* FBSDKAppLinkUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61A081201F80732000BD27DD /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E068059B96CDC79DA1FB356EFE856D /* FirebaseDatabase.framework */; };
 		621D2E70A1BF24575BAAFCF8E7996B48 /* GFRegionQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = DFFEFA02379F2CEBFD7CB03D98D64B18 /* GFRegionQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -759,6 +760,7 @@
 		6094BB31B37D633877866DFA0504EB09 /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		612A3A588FD9C7FDC69EEE619E122999 /* FBSDKAudioResourceLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAudioResourceLoader.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKAudioResourceLoader.m; sourceTree = "<group>"; };
 		613DE1AAD38C16F7115413E38633B42A /* FBSDKAppLinkUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAppLinkUtility.m; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkUtility.m; sourceTree = "<group>"; };
+		6148BD611F85778500A9A165 /* VenueDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailedViewController.swift; sourceTree = "<group>"; };
 		61664CF44868A9F4BB5D73510879C64A /* GPBUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPBUtilities.m; path = objectivec/GPBUtilities.m; sourceTree = "<group>"; };
 		61FB722FFF3BFD8A9CDFF095A6C13863 /* Pods-901waveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-901waveUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6309996F11DF78FE90C702138B17FCA2 /* GTMNSDictionary+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSDictionary+URLArguments.h"; path = "Foundation/GTMNSDictionary+URLArguments.h"; sourceTree = "<group>"; };
@@ -1720,6 +1722,7 @@
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
+				6148BD611F85778500A9A165 /* VenueDetailedViewController.swift */,
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				43045C834E2BEA09B1E78746DDE14341 /* Frameworks */,
 				83BEECCA6EE95C4174A619A58942AE3E /* Pods */,
@@ -2732,6 +2735,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					44CAD6CE523055ED339E87154473A254 = {
+						LastSwiftMigration = 0830;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2893,6 +2901,7 @@
 				F2C7932465662C25B5C3E35A215CEFB1 /* BFMeasurementEvent.m in Sources */,
 				2A2FC6BA5CD553E94C470C94DDCA3149 /* BFTask+Exceptions.m in Sources */,
 				98D0FD6F634DB222D25B918930B0A3C6 /* BFTask.m in Sources */,
+				6148BD621F85778500A9A165 /* VenueDetailedViewController.swift in Sources */,
 				10839BE4DCA013D0D5E6DDAAD1B38463 /* BFTaskCompletionSource.m in Sources */,
 				6F1C1760FC1CDD7E2E7D2AAE3A8F353F /* BFURL.m in Sources */,
 				5A54A9178928558C579D201BF7500392 /* BFWebViewAppLinkResolver.m in Sources */,
@@ -3234,6 +3243,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FD58D8BD22A23C4C6D498D44377D89E0 /* Bolts.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3257,6 +3267,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3687,6 +3698,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FD58D8BD22A23C4C6D498D44377D89E0 /* Bolts.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

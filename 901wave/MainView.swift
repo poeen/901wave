@@ -46,6 +46,13 @@ class MainView: UIViewController {
 
         print(mapView.userLocation.coordinate)
         
+        //Queries the Wave objects
+        var ref = Database.database().reference()
+        ref = ref.child("Wave")
+        ref.observe(.childAdded, with: { (snapshot) -> Void in
+            print(snapshot)
+            
+        })
 
     }
     
@@ -86,6 +93,8 @@ extension MainView : CLLocationManagerDelegate {
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = "bars"
         request.region = mapView.region
+        
+        //Searches for bars and clubs around you
         let search = MKLocalSearch(request: request)
         search.start { response, error in
             guard let response = response else {
@@ -157,14 +166,15 @@ extension MainView : MKMapViewDelegate {
         button.setBackgroundImage(UIImage(named: "Blue_circle"), for: UIControlState())
         button.addTarget(self, action: #selector(MainView.getDirections), for: .touchUpInside)
         pinView?.leftCalloutAccessoryView = button
+        
         let geofireRef = Database.database().reference()
 
         let geoFire = GeoFire(firebaseRef: geofireRef)
 
         let center = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
 
-        // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
-        geoFire?.query(at: center, withRadius: 0.3).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
+        // Creates the wave object when placing the annotation onto map
+        geoFire?.query(at: center, withRadius: 1.0).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
             
             geofireRef.child("Wave").childByAutoId().setValue(["title": annotation.title, "location":"NaN"])
             

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GhX-Uq-6fE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XOY-Um-6jH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,25 +22,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wave Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9Tp-Ig-i0r">
-                                <rect key="frame" x="67" y="28" width="240" height="105"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="901Wave BG" translatesAutoresizingMaskIntoConstraints="NO" id="6uk-xh-Ift">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFP-SY-50K">
-                                <rect key="frame" x="95" y="542" width="185" height="39"/>
-                                <state key="normal" title="Login with Facebook" image="Facebook Login"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFP-SY-50K">
+                                <rect key="frame" x="95" y="523" width="185" height="58"/>
+                                <state key="normal" image="Facebook Login"/>
                                 <connections>
                                     <action selector="loginWithFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O3h-ar-8AU"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="JOIN THE WAVE?" translatesAutoresizingMaskIntoConstraints="NO" id="jmb-Ay-H30">
+                                <rect key="frame" x="68" y="481" width="239" height="23"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Wave Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9Tp-Ig-i0r">
+                                <rect key="frame" x="67" y="85" width="240" height="105"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xFP-SY-50K" secondAttribute="bottom" constant="51" id="9RS-id-fdN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xFP-SY-50K" secondAttribute="bottom" constant="86" id="CLp-zV-6ht"/>
                             <constraint firstItem="xFP-SY-50K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="79" id="Frp-vb-3w0"/>
-                            <constraint firstItem="9Tp-Ig-i0r" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="b1d-dn-wsm"/>
+                            <constraint firstItem="6uk-xh-Ift" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KP8-vP-bBC"/>
+                            <constraint firstItem="6uk-xh-Ift" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Kcy-rz-rPr"/>
+                            <constraint firstItem="9Tp-Ig-i0r" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="65" id="UXW-eJ-Y6g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jmb-Ay-H30" secondAttribute="trailing" constant="52" id="WaX-TJ-le1"/>
+                            <constraint firstItem="jmb-Ay-H30" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="52" id="YKY-Dd-5Ok"/>
+                            <constraint firstItem="xFP-SY-50K" firstAttribute="top" secondItem="jmb-Ay-H30" secondAttribute="bottom" constant="19" id="bKa-mh-Nil"/>
+                            <constraint firstItem="jmb-Ay-H30" firstAttribute="top" secondItem="9Tp-Ig-i0r" secondAttribute="bottom" constant="348" id="fCI-Z7-PVB"/>
                             <constraint firstItem="9Tp-Ig-i0r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="iqF-yV-eYO"/>
                             <constraint firstItem="xFP-SY-50K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jhd-uC-NDq"/>
+                            <constraint firstAttribute="trailing" secondItem="6uk-xh-Ift" secondAttribute="trailing" id="kyv-on-K25"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6uk-xh-Ift" secondAttribute="bottom" id="mrk-A4-rIB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xFP-SY-50K" secondAttribute="trailing" constant="79" id="rxo-c7-rem"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9Tp-Ig-i0r" secondAttribute="trailing" constant="52" id="yM7-sP-RRc"/>
                         </constraints>
@@ -51,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-327.19999999999999" y="30.134932533733135"/>
+            <point key="canvasLocation" x="-415.19999999999999" y="-72.413793103448285"/>
         </scene>
         <!--Main View-->
         <scene sceneID="D0Q-oK-jjb">
@@ -96,11 +110,138 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYK-vq-WXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="-71"/>
+            <point key="canvasLocation" x="-159" y="-55"/>
+        </scene>
+        <!--Venue Detailed View Controller-->
+        <scene sceneID="5P7-cF-1Cz">
+            <objects>
+                <viewController id="XOY-Um-6jH" customClass="VenueDetailedViewController" customModule="Bolts" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K0z-Pi-EFq"/>
+                        <viewControllerLayoutGuide type="bottom" id="PCv-tk-IGj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="koy-DI-Eje">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Detailed - BG" translatesAutoresizingMaskIntoConstraints="NO" id="qfz-vR-MuV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Detailed - Default Image" translatesAutoresizingMaskIntoConstraints="NO" id="Prv-2C-6fS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Detailed - Image Border" translatesAutoresizingMaskIntoConstraints="NO" id="cMF-H7-Yfy">
+                                <rect key="frame" x="0.0" y="215" width="375" height="36"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rating Circle" translatesAutoresizingMaskIntoConstraints="NO" id="p7Z-tC-Wu6">
+                                <rect key="frame" x="281" y="199.5" width="67" height="67"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaT-VB-6TY" userLabel="Button - Back">
+                                <rect key="frame" x="31" y="35" width="62" height="62"/>
+                                <state key="normal" image="Back"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show At Newby's" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGW-bh-Wrp">
+                                <rect key="frame" x="16" y="274" width="186.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.11849034577608109" green="0.51816242933273315" blue="0.85034340620040894" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="539 S Highland St. Memphis, TN 38111" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfS-m8-WqX">
+                                <rect key="frame" x="16" y="311" width="282.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(901) 730-0520" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwa-P5-hFc">
+                                <rect key="frame" x="16" y="335" width="116" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGg-a9-B20">
+                                <rect key="frame" x="16" y="449" width="112.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.11849034577608109" green="0.51816242933273315" blue="0.85034340620040894" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YtN-oy-iEu" userLabel="Button - Join Wave">
+                                <rect key="frame" x="139" y="538" width="97" height="97"/>
+                                <state key="normal" image="Join Wave_"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sprawling, circa-1975 college bar &amp; music venue with pub grub, pool tables &amp; an outdoor patio." lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcO-MA-yae">
+                                <rect key="frame" x="16" y="384" width="343" height="68"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DGg-a9-B20" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leadingMargin" id="0b9-yv-lPY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p7Z-tC-Wu6" secondAttribute="trailing" constant="12" id="2vA-bI-6Ug"/>
+                            <constraint firstItem="HfS-m8-WqX" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leadingMargin" id="5GQ-Ju-FkU"/>
+                            <constraint firstItem="cMF-H7-Yfy" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leading" id="5Nh-yU-nVf"/>
+                            <constraint firstItem="Prv-2C-6fS" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leading" id="68k-FH-GNC"/>
+                            <constraint firstItem="fwa-P5-hFc" firstAttribute="top" secondItem="HfS-m8-WqX" secondAttribute="bottom" constant="4.5" id="6lc-d4-txH"/>
+                            <constraint firstItem="fwa-P5-hFc" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leadingMargin" id="8U6-rH-0CW"/>
+                            <constraint firstItem="qfz-vR-MuV" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leading" id="8Uy-He-yeV"/>
+                            <constraint firstItem="cMF-H7-Yfy" firstAttribute="top" secondItem="Prv-2C-6fS" secondAttribute="bottom" constant="-2" id="8Vc-KB-MA0"/>
+                            <constraint firstItem="fwa-P5-hFc" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leadingMargin" id="8n3-Yc-bJB"/>
+                            <constraint firstItem="DGg-a9-B20" firstAttribute="top" secondItem="fcO-MA-yae" secondAttribute="bottom" constant="7.5" id="G9g-qX-76d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YtN-oy-iEu" secondAttribute="trailing" constant="123" id="NLc-uM-D5Y"/>
+                            <constraint firstItem="HfS-m8-WqX" firstAttribute="top" secondItem="RGW-bh-Wrp" secondAttribute="bottom" constant="8" id="OQw-yn-sqQ"/>
+                            <constraint firstItem="PCv-tk-IGj" firstAttribute="top" secondItem="YtN-oy-iEu" secondAttribute="bottom" constant="32" id="S1L-Lp-VzG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p7Z-tC-Wu6" secondAttribute="trailing" constant="11" id="VK9-gj-95T"/>
+                            <constraint firstItem="RGW-bh-Wrp" firstAttribute="top" secondItem="cMF-H7-Yfy" secondAttribute="bottom" constant="23" id="XkE-uK-GDd"/>
+                            <constraint firstItem="HaT-VB-6TY" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leadingMargin" constant="15" id="awJ-2K-tpk"/>
+                            <constraint firstItem="RGW-bh-Wrp" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leadingMargin" id="axO-6B-Urx"/>
+                            <constraint firstAttribute="trailing" secondItem="Prv-2C-6fS" secondAttribute="trailing" id="cfC-BS-4Z3"/>
+                            <constraint firstItem="fwa-P5-hFc" firstAttribute="top" secondItem="HfS-m8-WqX" secondAttribute="bottom" constant="4.5" id="dt5-ih-cZe"/>
+                            <constraint firstItem="YtN-oy-iEu" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leadingMargin" constant="123" id="eQ6-9P-C6p"/>
+                            <constraint firstItem="RGW-bh-Wrp" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leadingMargin" id="gKn-df-OfD"/>
+                            <constraint firstItem="HaT-VB-6TY" firstAttribute="top" secondItem="K0z-Pi-EFq" secondAttribute="bottom" constant="15" id="gQc-lv-5oh"/>
+                            <constraint firstItem="PCv-tk-IGj" firstAttribute="top" secondItem="qfz-vR-MuV" secondAttribute="bottom" id="k61-q2-QRI"/>
+                            <constraint firstItem="fcO-MA-yae" firstAttribute="trailing" secondItem="koy-DI-Eje" secondAttribute="trailingMargin" id="lo6-ER-mCF"/>
+                            <constraint firstItem="Prv-2C-6fS" firstAttribute="top" secondItem="koy-DI-Eje" secondAttribute="top" id="mFa-7d-sNz"/>
+                            <constraint firstAttribute="trailing" secondItem="qfz-vR-MuV" secondAttribute="trailing" id="ndG-Kd-OXU"/>
+                            <constraint firstItem="fcO-MA-yae" firstAttribute="top" secondItem="fwa-P5-hFc" secondAttribute="bottom" constant="29.5" id="nhm-vn-7Tf"/>
+                            <constraint firstAttribute="trailing" secondItem="cMF-H7-Yfy" secondAttribute="trailing" id="sDN-Xa-05d"/>
+                            <constraint firstItem="PCv-tk-IGj" firstAttribute="top" secondItem="Prv-2C-6fS" secondAttribute="bottom" constant="450" id="v8O-s6-6qQ"/>
+                            <constraint firstItem="p7Z-tC-Wu6" firstAttribute="centerY" secondItem="cMF-H7-Yfy" secondAttribute="centerY" id="vaj-tM-EYO"/>
+                            <constraint firstItem="HfS-m8-WqX" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leadingMargin" id="vxb-BV-kPm"/>
+                            <constraint firstItem="qfz-vR-MuV" firstAttribute="top" secondItem="koy-DI-Eje" secondAttribute="top" id="wN9-Um-zHH"/>
+                            <constraint firstItem="fcO-MA-yae" firstAttribute="leading" secondItem="koy-DI-Eje" secondAttribute="leadingMargin" id="yAO-gj-gzs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="HaT-VB-6TY" id="Sk1-Rv-OxB"/>
+                        <outlet property="joinWaveButton" destination="YtN-oy-iEu" id="xYg-yz-1Kh"/>
+                        <outlet property="ratingWaveCircle" destination="p7Z-tC-Wu6" id="Mdj-w2-fRF"/>
+                        <outlet property="venueAddress" destination="HfS-m8-WqX" id="f1o-OT-XwQ"/>
+                        <outlet property="venueCommentSection" destination="DGg-a9-B20" id="KW9-Df-hsa"/>
+                        <outlet property="venueContactInfo" destination="fwa-P5-hFc" id="gek-cD-Knr"/>
+                        <outlet property="venueDescription" destination="fcO-MA-yae" id="6v3-tt-wDd"/>
+                        <outlet property="venueDetailedBackground" destination="qfz-vR-MuV" id="C5h-8N-uBv"/>
+                        <outlet property="venueImage" destination="Prv-2C-6fS" id="FTb-DX-7HU"/>
+                        <outlet property="venueImageBorder" destination="cMF-H7-Yfy" id="PMu-FJ-LD9"/>
+                        <outlet property="venueTitle" destination="RGW-bh-Wrp" id="qPc-Ry-vVg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M12-qF-gTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831.20000000000005" y="32.833583208395808"/>
         </scene>
     </scenes>
     <resources>
+        <image name="901Wave BG" width="375" height="667"/>
+        <image name="Back" width="62" height="62"/>
+        <image name="Detailed - BG" width="375" height="667"/>
+        <image name="Detailed - Default Image" width="375" height="219"/>
+        <image name="Detailed - Image Border" width="375" height="36"/>
         <image name="Facebook Login" width="183" height="39"/>
+        <image name="JOIN THE WAVE?" width="214" height="23"/>
+        <image name="Join Wave_" width="97" height="97"/>
+        <image name="Rating Circle" width="67" height="67"/>
         <image name="Wave Logo" width="244" height="105"/>
     </resources>
 </document>
