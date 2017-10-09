@@ -113,12 +113,17 @@ class ViewController: UIViewController {
         
     }
 
-    
-    
-    
-    
-    
-    
+    /* creating a back button - Naim
+    var backButton = UIButton()
+    func createButton(){
+        backButton.setTitle("< Back", for: .normal)
+        backButton.setTitleColor(UIColor.blue, for: .normal)
+        backButton.backgroundColor = UIColor.lightGray
+        
+        backButton.frame = CGRect(x: view.frame.width/2, y: view.frame.height/2, width: 100, height: 36)
+        view.addSubview(backButton)
+    }
+    */
 
 }
 

@@ -29,8 +29,18 @@ class MainView: UIViewController {
     var address: String?
     let locationManager = CLLocationManager()
     var userLocation = (CLLocation)()
+    var gotLocation = false
     
-    
+    //added by Naim
+    //these are the buttons for the map view
+    @IBOutlet weak var userProfileButton: UIButton!
+    @IBOutlet weak var sideMenuButton: UIButton!
+    @IBOutlet weak var joinWaveButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
+    //search bar
+    @IBOutlet weak var searchBar: UISearchBar!
+    //just the simple graphic
+    @IBOutlet weak var mapBaseRectangle: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
   
    
@@ -44,21 +54,94 @@ class MainView: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         self.locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-        print(mapView.userLocation.coordinate)
         
-        //Queries the Wave objects
-        var ref = Database.database().reference()
+        //Queries the Wave object
+      /*  var ref = Database.database().reference()
         ref = ref.child("Wave")
-        ref.observe(.childAdded, with: { (snapshot) -> Void in
-            //print(snapshot)
+        let geofireRef = Database.database().reference().child("WaveSpots")
+        let geoFire = GeoFire(firebaseRef: geofireRef)
+        geoFire?.query(at: locationManager.location, withRadius: 1.0).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
             
-        })
+            
+            print("Key '\(key)' entered the search area and is at location '\(location)'")
+            
+            var ref = Database.database().reference()
+            ref = ref.child("Wave").child(key)
+            ref.observeSingleEvent(of: .value, with: { snapshot in
+                let value = snapshot.value as? NSDictionary
+                let title = value?["title"] as? String
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = location.coordinate
+                annotation.title = title
+                self.mapView.addAnnotation(annotation)
+                //Increase the count
+            })
+            
+        })*/
+
+        
+        
         print("emply")
         print(mapView.userLocation.coordinate )
 
 
 
+    }
+    
+    func createWaves()  {
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = "bars"
+        request.region = mapView.region
+        var currentBars = [MKMapItem]()
+        //Searches for bars and clubs around you
+        let search = MKLocalSearch(request: request)
+        search.start { response, error in
+            guard let response = response else {
+                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
+                return
+            }
+            
+            
+            
+            for item in response.mapItems {
+                // Display the received items
+             currentBars.append(item)
+                
+                var ref = Database.database().reference()
+                ref = ref.child("Wave")
+                if item.name != "" {
+                    ref.queryOrdered(byChild: "title").queryEqual(toValue: item.name).observe(.value, with: { snapshot in
+                        print(snapshot)
+                        print()
+                        print("space")
+                        if snapshot.exists(){
+                            print("Object already exists")
+                            
+                        } else{
+                            var ref = Database.database().reference()
+                            ref = ref.child("Wave")
+                            ref.childByAutoId().setValue(["title":item.name, "address":item.placemark.title, "phone number":item.phoneNumber,  "count":0] )
+                            //ref = (ref.parent?.child("WaveSpots"))!
+                            let geofireRef = Database.database().reference().child("WaveSpots")
+                            let geoFire = GeoFire(firebaseRef: geofireRef)
+                            
+                            geofireRef.childByAutoId().setValue(["title": item.name, "count": 0]) { (error, snapshot) in
+                                
+                                geoFire?.setLocation(CLLocation(latitude: item.placemark.coordinate.latitude, longitude: item.placemark.coordinate.longitude), forKey: snapshot.key)
+                                
+                            }
+                            
+                        }
+                    
+                    })
+                }
+                
+
+            }
+            
+        }
+        
     }
     
     
@@ -68,58 +151,53 @@ class MainView: UIViewController {
         self.performSegue(withIdentifier: "back", sender: self)
     }
     @IBAction func logoutPressed(_ sender: Any) {
-        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)//removeObjectForKey
+       // let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)//removeObjectForKey
         //print("Umer: ID removed from keychain \(keychainResult)")
-        FBSDKLoginManager().logOut()
+        //FBSDKLoginManager().logOut()
        // try! Auth.auth().signOut()*/
-        let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = "bars"
-        request.region = mapView.region
+        createWaves()
+ 
         
-        //Searches for bars and clubs around you
-        let search = MKLocalSearch(request: request)
-        search.start { response, error in
-            guard let response = response else {
-                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
-                return
-            }
-            
-            for item in response.mapItems {
-                // Display the received items
-                let annotation = MKPointAnnotation()
-                annotation.title = item.name
-                annotation.subtitle = "Wave Intensity: 1"
-                annotation.coordinate = item.placemark.coordinate
-                // print(item.placemark.coordinate)
-                self.mapView.addAnnotation(annotation)
-                
-            }
-            
-        }
-        //Queries all waves location spots
         let geofireRef = Database.database().reference().child("WaveSpots")
         let geoFire = GeoFire(firebaseRef: geofireRef)
-        print(locationManager.location)
-        geoFire?.query(at: locationManager.location, withRadius: 1.0).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
+        geoFire?.query(at: userLocation, withRadius: 100.0).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
             
             
             print("Key '\(key)' entered the search area and is at location '\(location)'")
             
             var ref = Database.database().reference()
-            ref = ref.child("Wave/").child(key)
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                print(snapshot)
-                //Increase the count
+            ref = ref.child("Wave").child(key)
+            ref.child("title").observeSingleEvent(of: .value, with: { snapshot in
+                
+               
+                let value = snapshot.value as? NSDictionary
+                let title = value?["title"] as? String
+                let count = value?["count"] as? Int
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = location.coordinate
+                annotation.title = title
+                annotation.subtitle = String(describing: count)
+                self.mapView.addAnnotation(annotation)
+                
             })
             
         })
-        //performSegue(withIdentifier: "logout", sender: self)
+        
+        
+     
     }
-    override func viewDidAppear(_ animated: Bool) {
-        print("View did appear happened")
-        super.viewDidAppear(true)
 
+    /*
+     ADDED By Naim: This allows for the popup after they've joined the wave
+    */
+    @IBAction func showPopUp(_ sender: Any) {
+        let popOverMapView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "JoinedWavePopUp") as! PopUpViewController
+        self.addChildViewController(popOverMapView)
+        popOverMapView.view.frame = self.view.frame
+        self.view.addSubview(popOverMapView.view)
+        popOverMapView.didMove(toParentViewController: self)
     }
+    
 }
 extension MainView : CLLocationManagerDelegate {
     
@@ -130,52 +208,19 @@ extension MainView : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard var location = locations.last else { return }
+        guard let location = locations.last else { return }
         userLocation = location
         let span = MKCoordinateSpanMake(0.04, 0.04)
-        var region = MKCoordinateRegion(center: location.coordinate, span: span)
+        let region = MKCoordinateRegion(center: location.coordinate, span: span)
         mapView.setRegion(region, animated:false)
-
-        //print(userLocation)
-        let geofireRef = Database.database().reference().child("WaveSpots")
-        let geoFire = GeoFire(firebaseRef: geofireRef)
-        geoFire?.query(at: locationManager.location, withRadius: 1.0).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
-            
-            
-            print("Key '\(key)' entered the search area and is at location '\(location)'")
-            
-            var ref = Database.database().reference()
-            ref = ref.child("Wave").child(key)
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                print(snapshot)
-                //Increase the count
-            })
-            
-        })
-        geoFire?.query(at: locationManager.location, withRadius: 1.0).observe(.keyExited, with: { (key: String!, location: CLLocation!) in
-            
-            
-            print("Key '\(key)' exitedƒ the search area and is at location '\(location)'")
-            
-            var ref = Database.database().reference()
-            ref = ref.child("Wave").child(key)
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                print(snapshot)
-                //Decrease the count
-            })
-            
-        })
-
-
-        
     }
     
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error:: \(error)")
     }
- 
-            }
+
+}
 
 extension MainView: HandleMapSearch {
     
@@ -204,44 +249,44 @@ extension MainView: HandleMapSearch {
 extension MainView : MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
-        
+ 
         guard !(annotation is MKUserLocation) else { return nil }
         let reuseId = "pin"
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
         if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView?.canShowCallout = true
+
+        } else {
+            pinView?.annotation = annotation
         }
         
-        pinView?.pinTintColor = UIColor.orange
-        pinView?.canShowCallout = true
-        let smallSquare = CGSize(width: 30, height: 30)
+        
+        let smallSquare = CGSize(width: 200, height: 200)
         let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
         button.setBackgroundImage(UIImage(named: "Blue_circle"), for: UIControlState())
         button.addTarget(self, action: #selector(MainView.getDirections), for: .touchUpInside)
         pinView?.leftCalloutAccessoryView = button
-        
-        let geofireRef = Database.database().reference().child("Wave")
 
-        let geoFire = GeoFire(firebaseRef: geofireRef)
-
-        let center = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
         // Creates the wave object when placing the annotation onto map
-
-        var key = (String)()
+        let k = arc4random_uniform(200)
+        pinView?.image = generateWaveImage(count: Int(k))
         
-        geofireRef.childByAutoId().setValue(["title": annotation.title, "count": 0]) { (error, snapshot) in
+        /*geofireRef.childByAutoId().setValue(["title": annotation.title, "count": 0]) { (error, snapshot) in
             
             let geofireRef = Database.database().reference().child("WaveSpots")
             let geoFire = GeoFire(firebaseRef: geofireRef)
-            geoFire?.setLocation(CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude), forKey: snapshot.key)
+            //geoFire?.setLocation(CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude), forKey: snapshot.key)
+          }*/
             
-            
-        }
         
 
         
 
         return pinView
+    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("fef")
     }
 
 }
