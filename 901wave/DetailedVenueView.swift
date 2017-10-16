@@ -15,7 +15,6 @@ class DetailedVenue: UIViewController{
     // line is just the line that separates the contact info from the venue description.
     @IBOutlet weak var venueImage: UIImageView!
     @IBOutlet weak var ratingCircle: UIImageView!
-    @IBOutlet weak var imageNSeparation: UIImageView!
     @IBOutlet weak var venueBackground: UIImageView!
     @IBOutlet weak var line: UIImageView!
     // these are all of the names, titles and descriptions
