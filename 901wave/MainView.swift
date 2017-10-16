@@ -44,7 +44,7 @@ class MainView: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
   
    var memphisWaves = [Wave]()
-
+    var memWaves : Wave!
     
     
     override func viewDidLoad() {
@@ -90,6 +90,7 @@ class MainView: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             self.queryWave()
+            
         }
 
     }
@@ -119,6 +120,24 @@ class MainView: UIViewController {
             }
         })
     }
+    
+    
+    
+    
+    func counter(){
+        var ref = Database.database().reference().child("WaveSpots").child("Memphis")
+  
+        let geoFire = GeoFire(firebaseRef: ref)
+        
+        geoFire?.query(at: userLocation, withRadius: 100.0).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
+         print("HI")
+    print(key)
+        })
+    }
+    
+    
+    
+    
     func createWaves()  {
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = "bars"
@@ -153,12 +172,18 @@ class MainView: UIViewController {
                             newID.setValue(["title":item.name, "address":item.placemark.title, "phone number":item.phoneNumber,  "count":0] )
                             //ref = (ref.parent?.child("WaveSpots"))!
                             
-                            let geoFire = GeoFire(firebaseRef: newID)
+                            var geoFire = GeoFire(firebaseRef: newID)
                             
                     
                                 
                                 geoFire?.setLocation(CLLocation(latitude: item.placemark.coordinate.latitude, longitude: item.placemark.coordinate.longitude), forKey: snapshot.key)
-                                
+                            let georef = Database.database().reference().child("WaveSpots").child("Memphis")
+                            geoFire = GeoFire(firebaseRef: georef)
+                            
+                            
+                            
+                            geoFire?.setLocation(CLLocation(latitude: item.placemark.coordinate.latitude, longitude: item.placemark.coordinate.longitude), forKey: newID.key)
+                            
                             
                             
                         }
@@ -185,8 +210,6 @@ class MainView: UIViewController {
         //FBSDKLoginManager().logOut()
        // try! Auth.auth().signOut()*/
         
-        
-     
     }
 
     /*
@@ -200,6 +223,14 @@ class MainView: UIViewController {
         popOverMapView.didMove(toParentViewController: self)
         
         createWaves()
+        
+        
+        
+     
+        
+        
+        
+        
         
         
 
@@ -257,6 +288,7 @@ extension MainView : CLLocationManagerDelegate {
         let span = MKCoordinateSpanMake(0.04, 0.04)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
         mapView.setRegion(region, animated:false)
+        counter()
     }
     
     
