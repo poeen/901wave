@@ -54,7 +54,8 @@ class MainView: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         self.locationManager.requestAlwaysAuthorization()
-        
+        locationManager.stopMonitoringSignificantLocationChanges()
+        getFacebookUserInfo()
         //Queries the Wave object
       /*  var ref = Database.database().reference()
         ref = ref.child("Wave")
@@ -81,29 +82,62 @@ class MainView: UIViewController {
         })*/
 
         
-        print("emply")
-        print(mapView.userLocation.coordinate )
+        //print("emply")
+       // print(mapView.userLocation.coordinate )
 
 
 
     }
-    override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            self.queryWave()
+    
+    
+    
+    func getFacebookUserInfo() {
+        if(FBSDKAccessToken.current() != nil)
+        {
+            //print permissions, such as public_profile
+            print("Umer The permissions are \(FBSDKAccessToken.current().permissions)")
+            let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields" : "id, name, email"])
+            let connection = FBSDKGraphRequestConnection()
+            
+            connection.add(graphRequest, completionHandler: { (connection, result, error) -> Void in
+                
+                let data = result as! [String : AnyObject]
+                
+                var name = data["name"] as? String
+                
+                DataService.ds.REF_USER_CURRENT.child("Name").observeSingleEvent(of: .value, with: { (snapshot) in
+                    if snapshot.exists() {
+                        
+                    }
+                    else{
+                        DataService.ds.REF_USER_CURRENT.child("Name").setValue(name)
+                    }
+                })
+                connection?.start()
+            })
             
         }
+    }
+    
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+            self.queryWave()
+            
+        
 
     }
     func queryWave(){
         let waveReference = Database.database().reference().child("Wave").child("Memphis")
-        waveReference.observe(.value, with: { snapshot in
+        waveReference.observeSingleEvent(of: .value, with: { snapshot in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 
                 for snap in snapshot {
                     if let dictionary = snap.value as? Dictionary<String,AnyObject> {
                         let wave = Wave(key: snap.key, data: dictionary)
-                        if wave.count! > -1 {
-                            print(wave.location)
+                        if wave.count! > 0 {
+                           // print(wave.location)
                             let annotation = WaveAnnotation()
                             if wave.location?.coordinate != nil {
                                 annotation.coordinate = (wave.location?.coordinate)!
@@ -113,7 +147,7 @@ class MainView: UIViewController {
                                 self.memphisWaves.append(wave)
                             }
 
-                            print(wave.location)
+                           // print(wave.location)
                         }
                     }
                 }
@@ -125,18 +159,52 @@ class MainView: UIViewController {
     
     
     func counter(){
-        var ref = Database.database().reference().child("WaveSpots").child("Memphis")
-  
+        let ref = Database.database().reference().child("WaveSpots").child("Memphis")
         let geoFire = GeoFire(firebaseRef: ref)
+        let waveRef = Database.database().reference().child("Wave").child("Memphis")
         
-        geoFire?.query(at: userLocation, withRadius: 100.0).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
-         print("HI")
-    print(key)
+        
+        geoFire?.query(at: userLocation, withRadius: 0.5).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
+        print("someone entered")
+            waveRef.child(key).child("count").observeSingleEvent(of: .value, with: { snapshot in
+                if var number = snapshot.value as? Int{
+                    number = number + 1
+                    waveRef.child(key).child("count").setValue(number)
+                    print(number)
+                }
+
+                
+            })
+        })
+    }
+        /*
+            waveRef.child(key).child("count").runTransactionBlock({ (snap) -> TransactionResult in
+                if let valueToBeAppended = snap.value as? Int{
+                    snap.value = valueToBeAppended + 1
+                    return TransactionResult.success(withValue: snap)
+                }else{
+                    return TransactionResult.success(withValue: snap)
+                }
+            }, andCompletionBlock: {(error,completion,snap) in
+                print(error?.localizedDescription)
+                print(completion)
+                print(snap)
+                
+                if !completion {
+                    print("The value wasn't able to Update")
+                }else{
+                    print("Value updated")
+                }
+            })
+        
+
+        
         })
     }
     
     
-    
+    */
+            
     
     func createWaves()  {
         let request = MKLocalSearchRequest()
@@ -165,7 +233,7 @@ class MainView: UIViewController {
                         print()
                         //print("space")
                         if snapshot.exists(){
-                            print("Object already exists")
+                            //print("Object already exists")
                             
                         } else{
                           var newID = ref.childByAutoId()
@@ -175,7 +243,7 @@ class MainView: UIViewController {
                             var geoFire = GeoFire(firebaseRef: newID)
                             
                     
-                                
+                            
                                 geoFire?.setLocation(CLLocation(latitude: item.placemark.coordinate.latitude, longitude: item.placemark.coordinate.longitude), forKey: snapshot.key)
                             let georef = Database.database().reference().child("WaveSpots").child("Memphis")
                             geoFire = GeoFire(firebaseRef: georef)
@@ -288,8 +356,28 @@ extension MainView : CLLocationManagerDelegate {
         let span = MKCoordinateSpanMake(0.04, 0.04)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
         mapView.setRegion(region, animated:false)
+       
+        
+        let georef = Database.database().reference().child("UserLocations")
+        var geoFire = GeoFire(firebaseRef: georef)
+        
+        
+        
+        geoFire?.setLocation(CLLocation(latitude:userLocation.coordinate.latitude , longitude: userLocation.coordinate.longitude), forKey: Auth.auth().currentUser?.uid)
+
+        
+        
+        //get userid
+        
+        
+        //check if firebase object exist
+        
+        //if not create user location object
+        
+        //if so update the firebase object with location
         counter()
     }
+    
     
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

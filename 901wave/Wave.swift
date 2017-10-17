@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class Wave {
     private var _title:String?
@@ -15,6 +16,7 @@ class Wave {
     private var _address:String?
     private var _key:String
     private var _location:CLLocation?
+     private var _postRef: DatabaseReference!
     
     var location:CLLocation?{
         return _location
@@ -40,8 +42,9 @@ class Wave {
         return _phoneNumber
     }
     
-    
-    
+    var postRef: DatabaseReference{
+        return _postRef
+    }
     
     init(key:String, data:Dictionary<String,AnyObject>){
         self._key = key
@@ -71,8 +74,19 @@ class Wave {
         if let wavePhoneNumber = data["phone number"] {
             self._title = wavePhoneNumber as! String
         }
-      
+      _postRef = Database.database().reference().child("Wave").child("Memphis").child(_key)
     }
     
+    func adjustCount(addCount: Bool){
+        if addCount{
+            _count = _count! + 1
+            // let saveArray: NSArray = NSArray(object: Auth.auth().currentUser?.uid)
+            //DataService.ds.Ref_Agendas.child(agendaKey!).child("Liked").setValue(saveArray)
+        }else {
+            _count = _count! - 1
+        }
+        
+        _postRef.child("count").setValue(_count)
+    }
     
 }
