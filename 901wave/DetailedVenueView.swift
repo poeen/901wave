@@ -27,6 +27,10 @@ class DetailedVenue: UIViewController{
     // the button to join the wave
     @IBOutlet weak var joinWaveButton: UIButton!
     
+    
+    @IBOutlet weak var commentTableView: UITableView!
+    
+    
     var name:String?
     var picture:String?
     var contact:String?
@@ -38,6 +42,7 @@ class DetailedVenue: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(name)
         venueName.text = name
         venueContact.text = contact
         venueAddress.text = address

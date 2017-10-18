@@ -439,7 +439,11 @@ extension MainView : MKMapViewDelegate {
         
         return annotationView
     }
-    /*
+    
+    
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "venue" {
     
@@ -456,8 +460,9 @@ extension MainView : MKMapViewDelegate {
                         return
                     }
                     
-                    
                     for item in response.mapItems {
+                            print(item.placemark.title)
+                        
                         detailVC.address = item.placemark.title
                         detailVC.name = item.name
                         detailVC.contact = item.phoneNumber
@@ -468,7 +473,7 @@ extension MainView : MKMapViewDelegate {
         }
         }
     }
-    */
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 
        performSegue(withIdentifier: "venue", sender: self)

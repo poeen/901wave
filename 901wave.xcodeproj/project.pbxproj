@@ -17,6 +17,7 @@
 		616D1E461F60BAA200FBCCDE /* _01waveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616D1E451F60BAA200FBCCDE /* _01waveTests.swift */; };
 		616D1E511F60BAA200FBCCDE /* _01waveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616D1E501F60BAA200FBCCDE /* _01waveUITests.swift */; };
 		61776F351F9517B800A6C87C /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776F341F9517B800A6C87C /* Wave.swift */; };
+		61776F391F97D08C00A6C87C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776F381F97D08C00A6C87C /* CommentCell.swift */; };
 		61A379E11F86EEB800EEA05D /* WaveAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A379E01F86EEB800EEA05D /* WaveAnnotation.swift */; };
 		61BC70091F89AB1900D4DA1D /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BC70081F89AB1900D4DA1D /* PopUpViewController.swift */; };
 		61BC700B1F8C07A500D4DA1D /* DetailedVenueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BC700A1F8C07A500D4DA1D /* DetailedVenueView.swift */; };
@@ -64,6 +65,7 @@
 		616D1E501F60BAA200FBCCDE /* _01waveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _01waveUITests.swift; sourceTree = "<group>"; };
 		616D1E521F60BAA200FBCCDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61776F341F9517B800A6C87C /* Wave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
+		61776F381F97D08C00A6C87C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		61A0811B1F806F8500BD27DD /* 901wave-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "901wave-Bridging-Header.h"; sourceTree = "<group>"; };
 		61A379E01F86EEB800EEA05D /* WaveAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveAnnotation.swift; sourceTree = "<group>"; };
 		61BC70081F89AB1900D4DA1D /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
@@ -136,12 +138,12 @@
 		616D1E2F1F60BAA200FBCCDE /* 901wave */ = {
 			isa = PBXGroup;
 			children = (
+				61776F371F97D05800A6C87C /* DetailView */,
 				746928561F75E39600973845 /* Models */,
 				7469284D1F75DA0500973845 /* DataService */,
 				616D1E301F60BAA200FBCCDE /* AppDelegate.swift */,
 				616D1E321F60BAA200FBCCDE /* ViewController.swift */,
 				616D1E341F60BAA200FBCCDE /* Main.storyboard */,
-				61BC700A1F8C07A500D4DA1D /* DetailedVenueView.swift */,
 				61BC70081F89AB1900D4DA1D /* PopUpViewController.swift */,
 				616D1E371F60BAA200FBCCDE /* Assets.xcassets */,
 				7469284B1F75D8B200973845 /* GoogleService-Info.plist */,
@@ -170,6 +172,15 @@
 				616D1E521F60BAA200FBCCDE /* Info.plist */,
 			);
 			path = 901waveUITests;
+			sourceTree = "<group>";
+		};
+		61776F371F97D05800A6C87C /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				61BC700A1F8C07A500D4DA1D /* DetailedVenueView.swift */,
+				61776F381F97D08C00A6C87C /* CommentCell.swift */,
+			);
+			name = DetailView;
 			sourceTree = "<group>";
 		};
 		7254855DD14456A1217798B2 /* Pods */ = {
@@ -540,6 +551,7 @@
 				746928511F75DA4900973845 /* Constants.swift in Sources */,
 				61776F351F9517B800A6C87C /* Wave.swift in Sources */,
 				61BC70091F89AB1900D4DA1D /* PopUpViewController.swift in Sources */,
+				61776F391F97D08C00A6C87C /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
