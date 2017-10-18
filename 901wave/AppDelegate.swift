@@ -48,7 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        locationManager.startUpdatingLocation()
+        locationManager.requestLocation()
+        locationManager.startMonitoringSignificantLocationChanges()
         
         
 
@@ -80,6 +81,23 @@ extension AppDelegate: CLLocationManagerDelegate {
             if (error != nil) {
                 print("An error occured: \(error)")
             } else {
+                let ref = Database.database().reference().child("WaveSpots").child("Memphis")
+                let geoFire = GeoFire(firebaseRef: ref)
+                let waveRef = Database.database().reference().child("Wave").child("Memphis")
+                
+                
+                geoFire?.query(at: location, withRadius: 0.5).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
+                    print("someone entered")
+                    waveRef.child(key).child("count").observeSingleEvent(of: .value, with: { snapshot in
+                        if var number = snapshot.value as? Int{
+                            number = number + 1
+                            waveRef.child(key).child("count").setValue(number)
+                            print(number)
+                        }
+                        
+                        
+                    })
+                })
                 print(location)
                 print("Saved location successfully!")
             }

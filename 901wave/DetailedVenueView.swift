@@ -26,7 +26,22 @@ class DetailedVenue: UIViewController{
     @IBOutlet weak var commentSeparation: UILabel!
     // the button to join the wave
     @IBOutlet weak var joinWaveButton: UIButton!
+    
+    var name:String?
+    var picture:String?
+    var contact:String?
+    var address:String?
+    var descriptions:String?
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        venueName.text = name
+        venueContact.text = contact
+        venueAddress.text = address
+        venueDescription.text = descriptions
+        
     }
 }

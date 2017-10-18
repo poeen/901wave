@@ -54,7 +54,7 @@ class MainView: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         self.locationManager.requestAlwaysAuthorization()
-        locationManager.stopMonitoringSignificantLocationChanges()
+        locationManager.startMonitoringSignificantLocationChanges()
         getFacebookUserInfo()
         //Queries the Wave object
       /*  var ref = Database.database().reference()
@@ -436,12 +436,43 @@ extension MainView : MKMapViewDelegate {
 
         let waveAnnotation = annotation as! WaveAnnotation
         annotationView?.image = generateWaveImage(count: Int(k))
-    
+        
         return annotationView
     }
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "venue" {
     
+            if let detailVC = segue.destination as? DetailedVenue {
+                let request = MKLocalSearchRequest()
+                request.naturalLanguageQuery = "bars"
+               // request.region = mapView.region
+                var currentBars = [MKMapItem]()
+                //Searches for bars and clubs around you
+                let search = MKLocalSearch(request: request)
+                search.start { response, error in
+                    guard let response = response else {
+                        print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
+                        return
+                    }
+                    
+                    
+                    for item in response.mapItems {
+                        detailVC.address = item.placemark.title
+                        detailVC.name = item.name
+                        detailVC.contact = item.phoneNumber
+                        //detailVC.descriptions = item.placemark.subtitle
+                }
+            }
+        
+        }
+        }
+    }
+    */
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-       // performSegue(withIdentifier: "venue", sender: self)
+
+       performSegue(withIdentifier: "venue", sender: self)
+
     }
 
 }

@@ -72,7 +72,7 @@ class Wave {
         }
         
         if let wavePhoneNumber = data["phone number"] {
-            self._title = wavePhoneNumber as! String
+            self._phoneNumber = wavePhoneNumber as! String
         }
       _postRef = Database.database().reference().child("Wave").child("Memphis").child(_key)
     }
