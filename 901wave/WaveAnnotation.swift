@@ -7,5 +7,5 @@
 //
 
 class WaveAnnotation: MKPointAnnotation {
-    var imageName: String!
+    var key: String!
 }

@@ -18,6 +18,9 @@
 		616D1E511F60BAA200FBCCDE /* _01waveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616D1E501F60BAA200FBCCDE /* _01waveUITests.swift */; };
 		61776F351F9517B800A6C87C /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776F341F9517B800A6C87C /* Wave.swift */; };
 		61776F391F97D08C00A6C87C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776F381F97D08C00A6C87C /* CommentCell.swift */; };
+		61776F3C1F97F4C100A6C87C /* FullCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776F3B1F97F4C100A6C87C /* FullCommentCell.swift */; };
+		61776F3E1F97F52700A6C87C /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776F3D1F97F52700A6C87C /* CommentVC.swift */; };
+		61776F401F9824B900A6C87C /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776F3F1F9824B900A6C87C /* Comments.swift */; };
 		61A379E11F86EEB800EEA05D /* WaveAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A379E01F86EEB800EEA05D /* WaveAnnotation.swift */; };
 		61BC70091F89AB1900D4DA1D /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BC70081F89AB1900D4DA1D /* PopUpViewController.swift */; };
 		61BC700B1F8C07A500D4DA1D /* DetailedVenueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BC700A1F8C07A500D4DA1D /* DetailedVenueView.swift */; };
@@ -66,6 +69,9 @@
 		616D1E521F60BAA200FBCCDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61776F341F9517B800A6C87C /* Wave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
 		61776F381F97D08C00A6C87C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		61776F3B1F97F4C100A6C87C /* FullCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullCommentCell.swift; sourceTree = "<group>"; };
+		61776F3D1F97F52700A6C87C /* CommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
+		61776F3F1F9824B900A6C87C /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		61A0811B1F806F8500BD27DD /* 901wave-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "901wave-Bridging-Header.h"; sourceTree = "<group>"; };
 		61A379E01F86EEB800EEA05D /* WaveAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveAnnotation.swift; sourceTree = "<group>"; };
 		61BC70081F89AB1900D4DA1D /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 		616D1E2F1F60BAA200FBCCDE /* 901wave */ = {
 			isa = PBXGroup;
 			children = (
+				61776F3A1F97F49600A6C87C /* CommentsView */,
 				61776F371F97D05800A6C87C /* DetailView */,
 				746928561F75E39600973845 /* Models */,
 				7469284D1F75DA0500973845 /* DataService */,
@@ -181,6 +188,16 @@
 				61776F381F97D08C00A6C87C /* CommentCell.swift */,
 			);
 			name = DetailView;
+			sourceTree = "<group>";
+		};
+		61776F3A1F97F49600A6C87C /* CommentsView */ = {
+			isa = PBXGroup;
+			children = (
+				61776F3B1F97F4C100A6C87C /* FullCommentCell.swift */,
+				61776F3D1F97F52700A6C87C /* CommentVC.swift */,
+				61776F3F1F9824B900A6C87C /* Comments.swift */,
+			);
+			name = CommentsView;
 			sourceTree = "<group>";
 		};
 		7254855DD14456A1217798B2 /* Pods */ = {
@@ -551,7 +568,10 @@
 				746928511F75DA4900973845 /* Constants.swift in Sources */,
 				61776F351F9517B800A6C87C /* Wave.swift in Sources */,
 				61BC70091F89AB1900D4DA1D /* PopUpViewController.swift in Sources */,
+				61776F401F9824B900A6C87C /* Comments.swift in Sources */,
 				61776F391F97D08C00A6C87C /* CommentCell.swift in Sources */,
+				61776F3E1F97F52700A6C87C /* CommentVC.swift in Sources */,
+				61776F3C1F97F4C100A6C87C /* FullCommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

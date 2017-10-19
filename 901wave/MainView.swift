@@ -44,8 +44,8 @@ class MainView: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
   
    var memphisWaves = [Wave]()
-    var memWaves : Wave!
-    
+    var memWaves = (String)()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,6 +140,7 @@ class MainView: UIViewController {
                            // print(wave.location)
                             let annotation = WaveAnnotation()
                             if wave.location?.coordinate != nil {
+                                annotation.key = wave.key
                                 annotation.coordinate = (wave.location?.coordinate)!
                                 annotation.title = wave.title
                                 annotation.subtitle = String(describing: wave.count)
@@ -448,34 +449,15 @@ extension MainView : MKMapViewDelegate {
         if segue.identifier == "venue" {
     
             if let detailVC = segue.destination as? DetailedVenue {
-                let request = MKLocalSearchRequest()
-                request.naturalLanguageQuery = "bars"
-               // request.region = mapView.region
-                var currentBars = [MKMapItem]()
-                //Searches for bars and clubs around you
-                let search = MKLocalSearch(request: request)
-                search.start { response, error in
-                    guard let response = response else {
-                        print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
-                        return
-                    }
-                    
-                    for item in response.mapItems {
-                            print(item.placemark.title)
-                        
-                        detailVC.address = item.placemark.title
-                        detailVC.name = item.name
-                        detailVC.contact = item.phoneNumber
-                        //detailVC.descriptions = item.placemark.subtitle
-                }
-            }
-        
+                        detailVC.key = memWaves
+
         }
         }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-
+        let waveAnnotation = view.annotation as! WaveAnnotation
+        memWaves = waveAnnotation.key
        performSegue(withIdentifier: "venue", sender: self)
 
     }
