@@ -35,7 +35,16 @@ class CommmentVC:UIViewController {
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "back" {
+            
+            if let detailVC = segue.destination as? DetailedVenue {
+                detailVC.key = waveKey
+                
+            }
+        }
+    }
+
     
     
     override func viewDidLoad() {

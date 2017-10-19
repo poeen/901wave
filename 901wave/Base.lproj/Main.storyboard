@@ -394,7 +394,8 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J5s-TA-43M">
                                 <rect key="frame" x="16" y="449" width="343" height="198"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.35996609559999998" green="0.36375521240000003" blue="0.36375521240000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.35996609559999998" green="0.36375521240000003" blue="0.36375521240000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.21565845610000001" green="0.21570226549999999" blue="0.2156556845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="104" id="1YJ-b6-5Yr" customClass="CommentCell" customModule="_01wave" customModuleProvider="target">
@@ -407,7 +408,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hahahha hahahah ahhahaha ahahhaha hahahhaha looool llloooll hahahah hahahaha " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHi-gf-3zV">
                                                     <rect key="frame" x="8" y="8" width="327" height="88"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -418,7 +419,8 @@
                                                 <constraint firstItem="bHi-gf-3zV" firstAttribute="top" secondItem="Jyk-jE-Hgi" secondAttribute="top" constant="8" id="hv7-LF-zLW"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <color key="backgroundColor" red="0.35996609559999998" green="0.36375521240000003" blue="0.36375521240000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="commentLabel" destination="bHi-gf-3zV" id="rZ2-sf-vnb"/>
                                         </connections>
@@ -516,18 +518,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pez-lf-Eza">
-                                <rect key="frame" x="16" y="95" width="343" height="77"/>
-                                <color key="backgroundColor" red="0.35996609559646187" green="0.36375521239221409" blue="0.36375521239221409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMf-1N-Kfi">
+                                <rect key="frame" x="109.5" y="20" width="155.5" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="89" id="DsN-wP-uVG"/>
+                                    <constraint firstAttribute="height" constant="27.5" id="k6x-xR-Rbs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="0.11849034579999999" green="0.5181624293" blue="0.85034340620000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="126" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sSb-vj-bic">
-                                <rect key="frame" x="16" y="273" width="343" height="374"/>
+                                <rect key="frame" x="16" y="292" width="343" height="355"/>
                                 <color key="backgroundColor" red="0.36063647270202637" green="0.3647463321685791" blue="0.364704430103302" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.35996609559999998" green="0.36375521240000003" blue="0.36375521240000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="126" id="5pz-e5-gaF" customClass="FullCommentCell" customModule="_01wave" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="126"/>
@@ -539,7 +542,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx3-Dz-NPg">
                                                     <rect key="frame" x="8" y="8" width="327" height="110"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -550,7 +553,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Rx3-Dz-NPg" secondAttribute="trailing" constant="8" id="wSc-55-BGH"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="fullCommentLabel" destination="Rx3-Dz-NPg" id="Wlz-CY-Q9S"/>
                                         </connections>
@@ -562,7 +565,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ng4-xy-pkw">
-                                <rect key="frame" x="162.5" y="181" width="49" height="30"/>
+                                <rect key="frame" x="162.5" y="200" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitButtonPressed:" destination="9Mv-p0-abH" eventType="touchUpInside" id="bHe-K4-zup"/>
@@ -571,16 +574,19 @@
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugd-MA-wfZ">
                                 <rect key="frame" x="23" y="20" width="62" height="62"/>
                                 <state key="normal" image="Back"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="9Mv-p0-abH" eventType="touchUpInside" id="gkF-x4-EOP"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMf-1N-Kfi">
-                                <rect key="frame" x="109.5" y="20" width="155.5" height="28"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pez-lf-Eza">
+                                <rect key="frame" x="16" y="103" width="343" height="89"/>
+                                <color key="backgroundColor" red="0.35996609559646187" green="0.36375521239221409" blue="0.36375521239221409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="27.5" id="k6x-xR-Rbs"/>
+                                    <constraint firstAttribute="height" constant="89" id="DsN-wP-uVG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" red="0.11849034579999999" green="0.5181624293" blue="0.85034340620000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.21565845608711243" green="0.21570226550102234" blue="0.21565568447113037" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -589,12 +595,13 @@
                             <constraint firstItem="ugd-MA-wfZ" firstAttribute="leading" secondItem="6LT-8p-bTp" secondAttribute="leadingMargin" constant="7" id="5hF-rN-cVw"/>
                             <constraint firstItem="sSb-vj-bic" firstAttribute="leading" secondItem="6LT-8p-bTp" secondAttribute="leadingMargin" id="9RQ-Ou-hiG"/>
                             <constraint firstItem="HMf-1N-Kfi" firstAttribute="centerX" secondItem="6LT-8p-bTp" secondAttribute="centerX" id="9hO-sL-kDL"/>
+                            <constraint firstItem="pez-lf-Eza" firstAttribute="top" secondItem="ugd-MA-wfZ" secondAttribute="bottom" constant="21" id="FZ7-h8-Coi"/>
                             <constraint firstItem="pez-lf-Eza" firstAttribute="leading" secondItem="6LT-8p-bTp" secondAttribute="leadingMargin" id="GLt-o7-3pV"/>
                             <constraint firstItem="HMf-1N-Kfi" firstAttribute="top" secondItem="efG-vi-sNc" secondAttribute="bottom" id="W0Q-LC-k65"/>
-                            <constraint firstItem="pez-lf-Eza" firstAttribute="top" secondItem="HMf-1N-Kfi" secondAttribute="bottom" constant="35.5" id="cZ2-Gz-tP4"/>
                             <constraint firstItem="Bvu-0l-ox9" firstAttribute="top" secondItem="sSb-vj-bic" secondAttribute="bottom" constant="20" id="gLA-5q-Ksk"/>
                             <constraint firstItem="Ng4-xy-pkw" firstAttribute="top" secondItem="pez-lf-Eza" secondAttribute="bottom" constant="8" id="j0O-Zw-UvH"/>
                             <constraint firstItem="ugd-MA-wfZ" firstAttribute="top" secondItem="efG-vi-sNc" secondAttribute="bottom" id="lYy-PT-dhD"/>
+                            <constraint firstItem="pez-lf-Eza" firstAttribute="centerX" secondItem="6LT-8p-bTp" secondAttribute="centerX" id="mmO-BK-kBt"/>
                             <constraint firstItem="pez-lf-Eza" firstAttribute="trailing" secondItem="6LT-8p-bTp" secondAttribute="trailingMargin" id="rG6-fb-mkV"/>
                             <constraint firstItem="sSb-vj-bic" firstAttribute="top" secondItem="Ng4-xy-pkw" secondAttribute="bottom" constant="62" id="xyr-Ha-pgS"/>
                         </constraints>
@@ -602,11 +609,12 @@
                     <connections>
                         <outlet property="addCommentBox" destination="pez-lf-Eza" id="Dp5-NJ-uDl"/>
                         <outlet property="fullCommentTableView" destination="sSb-vj-bic" id="ZUu-sd-Cxz"/>
+                        <segue destination="XOY-Um-6jH" kind="show" identifier="back" id="KQ6-9K-iAA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQF-zn-QsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1852" y="614"/>
+            <point key="canvasLocation" x="1292" y="540"/>
         </scene>
     </scenes>
     <resources>
@@ -627,6 +635,7 @@
         <image name="Wave Logo" width="244" height="105"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yAc-Vx-6Lp"/>
+        <segue reference="iHH-uq-qEC"/>
+        <segue reference="KQ6-9K-iAA"/>
     </inferredMetricsTieBreakers>
 </document>
