@@ -157,9 +157,8 @@
 		60550CBEF2A1ECB61FAA64CE35685B66 /* FBSDKTriStateBOOL.m in Sources */ = {isa = PBXBuildFile; fileRef = F07D8E55A2029C14A8620B168890460B /* FBSDKTriStateBOOL.m */; };
 		60C8C77F1AACF31ABFB396F2B557BF94 /* pb_common.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C08D061029EA2D9D16A5B1F55134021 /* pb_common.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc -fno-objc-arc -fno-objc-arc"; }; };
 		610CF3A0227BF99BD5D6EFA7A69A7C04 /* FBSDKTestUsersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE53E721AF71B3628269BDCE2D1C537 /* FBSDKTestUsersManager.m */; };
+		61776F441FA1368D00A6C87C /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E068059B96CDC79DA1FB356EFE856D /* FirebaseDatabase.framework */; };
 		619F308ADA1F66BA128318455FC99AA2 /* FBSDKAppLinkUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = BA7679BECED0619D20CB3AC335005BEE /* FBSDKAppLinkUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61A379DF1F86ED3300EEA05D /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E068059B96CDC79DA1FB356EFE856D /* FirebaseDatabase.framework */; };
-		61BC70071F883C4200D4DA1D /* exmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BC70061F883C4200D4DA1D /* exmp.swift */; };
 		621D2E70A1BF24575BAAFCF8E7996B48 /* GFRegionQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = DFFEFA02379F2CEBFD7CB03D98D64B18 /* GFRegionQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6384F58451239E1B2C9DCB347CEB0F12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA96B9A0688F0BF1D00C555B8CBC337 /* Foundation.framework */; };
 		63A49532C857D4508B8112C46EB1E501 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A57AF5E656D5D233878E88CCD17A23 /* FBSDKCoreKit.framework */; };
@@ -761,7 +760,6 @@
 		612A3A588FD9C7FDC69EEE619E122999 /* FBSDKAudioResourceLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAudioResourceLoader.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKAudioResourceLoader.m; sourceTree = "<group>"; };
 		613DE1AAD38C16F7115413E38633B42A /* FBSDKAppLinkUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAppLinkUtility.m; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkUtility.m; sourceTree = "<group>"; };
 		61664CF44868A9F4BB5D73510879C64A /* GPBUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPBUtilities.m; path = objectivec/GPBUtilities.m; sourceTree = "<group>"; };
-		61BC70061F883C4200D4DA1D /* exmp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = exmp.swift; path = ../901wave/exmp.swift; sourceTree = "<group>"; };
 		61FB722FFF3BFD8A9CDFF095A6C13863 /* Pods-901waveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-901waveUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6309996F11DF78FE90C702138B17FCA2 /* GTMNSDictionary+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSDictionary+URLArguments.h"; path = "Foundation/GTMNSDictionary+URLArguments.h"; sourceTree = "<group>"; };
 		6348D4685CB29F0E69EBCA2D67CA41D5 /* FBSDKTooltipView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKTooltipView.m; path = FBSDKLoginKit/FBSDKLoginKit/FBSDKTooltipView.m; sourceTree = "<group>"; };
@@ -1082,7 +1080,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61A379DF1F86ED3300EEA05D /* FirebaseDatabase.framework in Frameworks */,
+				61776F441FA1368D00A6C87C /* FirebaseDatabase.framework in Frameworks */,
 				72FB0A0B7CC16F19E94D1790A4C4FBCC /* CoreLocation.framework in Frameworks */,
 				25879CDBE7CF862BA00EEB95CD33F310 /* Foundation.framework in Frameworks */,
 				36897F1A564529FA0F6EDC6E56978E5A /* GoogleToolboxForMac.framework in Frameworks */,
@@ -1722,7 +1720,6 @@
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				61BC70061F883C4200D4DA1D /* exmp.swift */,
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				43045C834E2BEA09B1E78746DDE14341 /* Frameworks */,
 				83BEECCA6EE95C4174A619A58942AE3E /* Pods */,
@@ -2735,11 +2732,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					44CAD6CE523055ED339E87154473A254 = {
-						LastSwiftMigration = 0830;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2896,7 +2888,6 @@
 				B6CF73E710F5A135F4FBED41AA5B5ADD /* BFAppLinkTarget.m in Sources */,
 				E01CA22744FB7F69CF328791EC8E795F /* BFCancellationToken.m in Sources */,
 				03674AF1F02ABBDF3871B6D5116CC362 /* BFCancellationTokenRegistration.m in Sources */,
-				61BC70071F883C4200D4DA1D /* exmp.swift in Sources */,
 				4ECECEB5C372BB91D3A66BFD432AD598 /* BFCancellationTokenSource.m in Sources */,
 				AF574F9900C07227D36AF4129E31953F /* BFExecutor.m in Sources */,
 				F2C7932465662C25B5C3E35A215CEFB1 /* BFMeasurementEvent.m in Sources */,
@@ -3243,7 +3234,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FD58D8BD22A23C4C6D498D44377D89E0 /* Bolts.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3267,7 +3257,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3698,7 +3687,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FD58D8BD22A23C4C6D498D44377D89E0 /* Bolts.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
