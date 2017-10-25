@@ -42,6 +42,8 @@ class MainView: UIViewController {
     //just the simple graphic
     @IBOutlet weak var mapBaseRectangle: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var profilePic: UIButton!
   
    var memphisWaves = [Wave]()
     var memWaves = (String)()
@@ -56,6 +58,13 @@ class MainView: UIViewController {
         self.locationManager.requestAlwaysAuthorization()
         locationManager.startMonitoringSignificantLocationChanges()
         getFacebookUserInfo()
+        getProfilePic()
+        profilePic.layer.borderWidth = 1
+        profilePic.layer.masksToBounds = true
+        profilePic.layer.cornerRadius = profilePic.frame.height/2
+        profilePic.clipsToBounds = true
+        profilePic.layer.borderColor = UIColor.clear.cgColor
+
         //Queries the Wave object
       /*  var ref = Database.database().reference()
         ref = ref.child("Wave")
@@ -117,6 +126,32 @@ class MainView: UIViewController {
             })
             
         }
+    }
+    
+    func getProfilePic(){
+        if(FBSDKAccessToken.current() != nil)
+        {
+            //print permissions, such as public_profile
+            print("Umer The permissions are \(FBSDKAccessToken.current().permissions)")
+            let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields" : "id, name, email, about, location, gender"])
+            let connection = FBSDKGraphRequestConnection()
+            
+            connection.add(graphRequest, completionHandler: { (connection, result, error) -> Void in
+                
+                let data = result as! [String : AnyObject]
+                
+                let FBid = data["id"] as? String
+                
+                
+                
+                
+                
+                let url = NSURL(string: "https://graph.facebook.com/\(FBid!)/picture?type=large&return_ssl_resources=1")
+                self.profilePic.setImage(UIImage(data: NSData(contentsOf: url! as URL)! as Data), for: .normal)
+            })
+            connection.start()
+        }
+
     }
     
     

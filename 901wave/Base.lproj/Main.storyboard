@@ -86,8 +86,8 @@
                                     <action selector="logoutPressed:" destination="GhX-Uq-6fE" eventType="touchUpInside" id="FqL-OC-ETU"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBL-d1-Ocl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBL-d1-Ocl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="621"/>
                                 <connections>
                                     <outlet property="delegate" destination="GhX-Uq-6fE" id="75p-rW-qlz"/>
                                 </connections>
@@ -102,10 +102,6 @@
                                     <action selector="showPopUp:" destination="GhX-Uq-6fE" eventType="touchUpInside" id="j7p-Rr-BrW"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="y59-i2-HnY">
-                                <rect key="frame" x="16" y="131" width="339" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJ4-kV-fOx">
                                 <rect key="frame" x="143" y="35" width="88" height="89"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -113,14 +109,18 @@
                                     <constraint firstAttribute="height" constant="89" id="DEq-Ha-d0O"/>
                                     <constraint firstAttribute="width" constant="88" id="YWN-ld-UbO"/>
                                 </constraints>
-                                <state key="normal" image="User - Demo"/>
                                 <connections>
                                     <segue destination="y8O-7U-IyK" kind="show" id="uiv-RF-WkU"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="y59-i2-HnY">
+                                <rect key="frame" x="16" y="131" width="339" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8df-f0-58p" firstAttribute="top" secondItem="MBL-d1-Ocl" secondAttribute="bottom" id="10G-eZ-udi"/>
                             <constraint firstItem="y59-i2-HnY" firstAttribute="top" secondItem="mJ4-kV-fOx" secondAttribute="bottom" constant="7" id="2gH-Dp-sdW"/>
                             <constraint firstItem="HST-Fk-jbB" firstAttribute="centerX" secondItem="Lvz-xl-lu3" secondAttribute="centerX" id="6sY-d2-ZEy"/>
                             <constraint firstItem="y59-i2-HnY" firstAttribute="leading" secondItem="NHt-QC-zAN" secondAttribute="leadingMargin" id="Bh9-Ej-mmT"/>
@@ -132,11 +132,14 @@
                             <constraint firstItem="mJ4-kV-fOx" firstAttribute="top" secondItem="B4e-Kw-LBj" secondAttribute="bottom" constant="15" id="XEk-kZ-jrI"/>
                             <constraint firstItem="MBL-d1-Ocl" firstAttribute="leading" secondItem="HST-Fk-jbB" secondAttribute="leading" id="Ykj-5M-Hw0"/>
                             <constraint firstItem="mJ4-kV-fOx" firstAttribute="centerX" secondItem="HeI-m8-KQ2" secondAttribute="centerX" id="au0-IW-2rA"/>
+                            <constraint firstItem="MBL-d1-Ocl" firstAttribute="leading" secondItem="NHt-QC-zAN" secondAttribute="leading" id="caA-32-gVq"/>
                             <constraint firstItem="Lvz-xl-lu3" firstAttribute="top" secondItem="HeI-m8-KQ2" secondAttribute="bottom" constant="11" id="icK-zS-Bhb"/>
                             <constraint firstItem="HeI-m8-KQ2" firstAttribute="leading" secondItem="NHt-QC-zAN" secondAttribute="leadingMargin" constant="95" id="l5l-em-lPk"/>
                             <constraint firstItem="8df-f0-58p" firstAttribute="top" secondItem="MBL-d1-Ocl" secondAttribute="bottom" id="lhX-x5-ymy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="y59-i2-HnY" secondAttribute="trailing" constant="4" id="n6A-Ca-xBm"/>
                             <constraint firstItem="8df-f0-58p" firstAttribute="top" secondItem="Lvz-xl-lu3" secondAttribute="bottom" constant="8" symbolic="YES" id="oSr-TN-ZP4"/>
+                            <constraint firstItem="MBL-d1-Ocl" firstAttribute="top" secondItem="NHt-QC-zAN" secondAttribute="top" id="rRO-Fh-5nj"/>
+                            <constraint firstAttribute="trailing" secondItem="MBL-d1-Ocl" secondAttribute="trailing" id="vr7-uN-Saq"/>
                             <constraint firstItem="Lvz-xl-lu3" firstAttribute="top" secondItem="HST-Fk-jbB" secondAttribute="bottom" constant="8" symbolic="YES" id="z3k-rQ-rwa"/>
                         </constraints>
                     </view>
@@ -145,6 +148,7 @@
                         <outlet property="logoutButton" destination="Lvz-xl-lu3" id="ACp-rG-FrY"/>
                         <outlet property="mapBaseRectangle" destination="HST-Fk-jbB" id="jWd-AR-vKv"/>
                         <outlet property="mapView" destination="MBL-d1-Ocl" id="P3w-n8-oCY"/>
+                        <outlet property="profilePic" destination="mJ4-kV-fOx" id="OKC-zd-Uds"/>
                         <outlet property="searchBar" destination="y59-i2-HnY" id="0gV-e2-ULh"/>
                         <outlet property="userProfileButton" destination="mJ4-kV-fOx" id="PO0-LA-e3r"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="logout" id="C6i-xq-ZuU"/>
@@ -592,12 +596,11 @@
         <image name="Map View Base" width="375" height="90"/>
         <image name="Menu" width="62" height="62"/>
         <image name="Rating Circle" width="67" height="67"/>
-        <image name="User - Demo" width="179" height="179"/>
         <image name="User - Profile BG Demo" width="375" height="149"/>
         <image name="Wave Logo" width="244" height="105"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iA6-58-9Qz"/>
-        <segue reference="KQ6-9K-iAA"/>
+        <segue reference="IKf-3e-oo2"/>
     </inferredMetricsTieBreakers>
 </document>
