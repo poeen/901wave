@@ -48,10 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        if(FBSDKAccessToken.current() != nil)
+        {
         locationManager.requestLocation()
         locationManager.startMonitoringSignificantLocationChanges()
         
-        
+        }
 
 
     }
@@ -72,6 +74,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 extension AppDelegate: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error:: \(error.localizedDescription)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard var location = locations.last else { return }
         print("KAreem was here")

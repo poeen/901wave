@@ -9,6 +9,8 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import SwiftKeychainWrapper
+import Firebase
 
 class UserProfileVC: UIViewController {
     
@@ -50,6 +52,17 @@ class UserProfileVC: UIViewController {
     }
     }
 
+    
+    @IBAction func logoutPressed(_ sender: Any) {
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)//removeObjectForKey
+        print("Umer: ID removed from keychain \(keychainResult)")
+        FBSDKLoginManager().logOut()
+         try! Auth.auth().signOut()
+        performSegue(withIdentifier: "logout", sender: nil)
+
+    }
+    
+    
     
     
     override func viewDidLoad() {

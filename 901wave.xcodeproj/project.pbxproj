@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0D45F997A4F6EC36474950A7 /* Pods_901waveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82458B3EDEDCB5788A272264 /* Pods_901waveTests.framework */; };
 		121D08F31222025199E5F857 /* Pods_901waveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3778364DDEDB92A92456EA8 /* Pods_901waveUITests.framework */; };
+		6120FFCC1FA661F7002F315E /* aboutOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6120FFCB1FA661F7002F315E /* aboutOne.swift */; };
+		6120FFCE1FA66206002F315E /* aboutTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6120FFCD1FA66206002F315E /* aboutTwo.swift */; };
+		6120FFD01FA6623A002F315E /* aboutThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6120FFCF1FA6623A002F315E /* aboutThree.swift */; };
+		6120FFD21FA6A393002F315E /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6120FFD11FA6A393002F315E /* LocationSearchTable.swift */; };
 		616D1E311F60BAA200FBCCDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616D1E301F60BAA200FBCCDE /* AppDelegate.swift */; };
 		616D1E331F60BAA200FBCCDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616D1E321F60BAA200FBCCDE /* ViewController.swift */; };
 		616D1E361F60BAA200FBCCDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616D1E341F60BAA200FBCCDE /* Main.storyboard */; };
@@ -55,6 +59,10 @@
 		33DA2FE85893BECCF6639559 /* Pods-901waveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-901waveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-901waveTests/Pods-901waveTests.release.xcconfig"; sourceTree = "<group>"; };
 		37B56E694504246837CC72DE /* Pods_901wave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_901wave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B3DCC4641C0D8A549C92B2 /* Pods-901waveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-901waveUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-901waveUITests/Pods-901waveUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6120FFCB1FA661F7002F315E /* aboutOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aboutOne.swift; sourceTree = "<group>"; };
+		6120FFCD1FA66206002F315E /* aboutTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aboutTwo.swift; sourceTree = "<group>"; };
+		6120FFCF1FA6623A002F315E /* aboutThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aboutThree.swift; sourceTree = "<group>"; };
+		6120FFD11FA6A393002F315E /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationSearchTable.swift; path = "../../../../../Downloads/MapKitTutorial-master/MapKitTutorial/LocationSearchTable.swift"; sourceTree = "<group>"; };
 		616D1E2D1F60BAA200FBCCDE /* 901wave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 901wave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		616D1E301F60BAA200FBCCDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		616D1E321F60BAA200FBCCDE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +128,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6120FFC61FA6614E002F315E /* About Views */ = {
+			isa = PBXGroup;
+			children = (
+				6120FFCB1FA661F7002F315E /* aboutOne.swift */,
+				6120FFCD1FA66206002F315E /* aboutTwo.swift */,
+				6120FFCF1FA6623A002F315E /* aboutThree.swift */,
+			);
+			name = "About Views";
+			sourceTree = "<group>";
+		};
 		616D1E241F60BAA200FBCCDE = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +172,8 @@
 				616D1E301F60BAA200FBCCDE /* AppDelegate.swift */,
 				616D1E321F60BAA200FBCCDE /* ViewController.swift */,
 				616D1E341F60BAA200FBCCDE /* Main.storyboard */,
+				6120FFD11FA6A393002F315E /* LocationSearchTable.swift */,
+				6120FFC61FA6614E002F315E /* About Views */,
 				61BC70081F89AB1900D4DA1D /* PopUpViewController.swift */,
 				616D1E371F60BAA200FBCCDE /* Assets.xcassets */,
 				7469284B1F75D8B200973845 /* GoogleService-Info.plist */,
@@ -576,13 +596,17 @@
 				746928531F75DEDD00973845 /* MainView.swift in Sources */,
 				746928551F75E38100973845 /* Event.swift in Sources */,
 				61776F471FA137B800A6C87C /* UserProfileVC.swift in Sources */,
+				6120FFCE1FA66206002F315E /* aboutTwo.swift in Sources */,
+				6120FFCC1FA661F7002F315E /* aboutOne.swift in Sources */,
 				61A379E11F86EEB800EEA05D /* WaveAnnotation.swift in Sources */,
+				6120FFD21FA6A393002F315E /* LocationSearchTable.swift in Sources */,
 				746928511F75DA4900973845 /* Constants.swift in Sources */,
 				61776F351F9517B800A6C87C /* Wave.swift in Sources */,
 				61BC70091F89AB1900D4DA1D /* PopUpViewController.swift in Sources */,
 				61776F401F9824B900A6C87C /* Comments.swift in Sources */,
 				61776F391F97D08C00A6C87C /* CommentCell.swift in Sources */,
 				61776F3E1F97F52700A6C87C /* CommentVC.swift in Sources */,
+				6120FFD01FA6623A002F315E /* aboutThree.swift in Sources */,
 				61776F3C1F97F4C100A6C87C /* FullCommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

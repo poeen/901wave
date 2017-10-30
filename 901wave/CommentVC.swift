@@ -20,6 +20,7 @@ class CommmentVC:UIViewController {
     
     @IBAction func submitButtonPressed(_ sender: Any) {
         sendCommentToDatabase()
+        performSegue(withIdentifier: "aftersubmit", sender: nil)
     }
     
     func sendCommentToDatabase(){
@@ -43,6 +44,14 @@ class CommmentVC:UIViewController {
                 
             }
         }
+        
+        if segue.identifier == "aftersubmit" {
+            if let detailVC = segue.destination as? DetailedVenue {
+                detailVC.key = waveKey
+                
+            }
+ 
+        }
     }
 
     
@@ -62,6 +71,7 @@ class CommmentVC:UIViewController {
                         self.comments.append(currentEvent)
                     }
                 }
+                self.comments.reverse()
                 self.fullCommentTableView.reloadData()
             }
         })

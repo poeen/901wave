@@ -19,6 +19,9 @@ class PopUpViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    func swipeReact(){
+        self.performSegue(withIdentifier: "aOneToATwo", sender: self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
