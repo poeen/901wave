@@ -13,6 +13,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 import MapKit
+import FirebaseMessaging
 import GeoFire
 
 protocol HandleMapSearch: class {
@@ -65,6 +66,7 @@ class MainView: UIViewController {
         profilePic.clipsToBounds = true
         profilePic.layer.borderColor = UIColor.clear.cgColor
         searchBarSetup()
+        Messaging.messaging().subscribe(toTopic:"test")
 
     }
     
