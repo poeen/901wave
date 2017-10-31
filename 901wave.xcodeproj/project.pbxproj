@@ -88,6 +88,7 @@
 		61BC700A1F8C07A500D4DA1D /* DetailedVenueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedVenueView.swift; sourceTree = "<group>"; };
 		61BC700E1F8C359100D4DA1D /* WaveGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaveGenerator.swift; path = ../../../../../Downloads/WaveGenerator.swift; sourceTree = "<group>"; };
 		7434936214AA0277EE87F4CA /* Pods-901wave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-901wave.debug.xcconfig"; path = "Pods/Target Support Files/Pods-901wave/Pods-901wave.debug.xcconfig"; sourceTree = "<group>"; };
+		745B76C31FA7E9020001BDEA /* 901wave.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 901wave.entitlements; sourceTree = "<group>"; };
 		7469284B1F75D8B200973845 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7469284E1F75DA1B00973845 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		746928501F75DA4900973845 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -164,16 +165,17 @@
 		616D1E2F1F60BAA200FBCCDE /* 901wave */ = {
 			isa = PBXGroup;
 			children = (
+				745B76C31FA7E9020001BDEA /* 901wave.entitlements */,
 				61776F451FA1379700A6C87C /* UserProfile */,
 				61776F3A1F97F49600A6C87C /* CommentsView */,
 				61776F371F97D05800A6C87C /* DetailView */,
 				746928561F75E39600973845 /* Models */,
+				6120FFC61FA6614E002F315E /* About Views */,
 				7469284D1F75DA0500973845 /* DataService */,
 				616D1E301F60BAA200FBCCDE /* AppDelegate.swift */,
 				616D1E321F60BAA200FBCCDE /* ViewController.swift */,
 				616D1E341F60BAA200FBCCDE /* Main.storyboard */,
 				6120FFD11FA6A393002F315E /* LocationSearchTable.swift */,
-				6120FFC61FA6614E002F315E /* About Views */,
 				61BC70081F89AB1900D4DA1D /* PopUpViewController.swift */,
 				616D1E371F60BAA200FBCCDE /* Assets.xcassets */,
 				7469284B1F75D8B200973845 /* GoogleService-Info.plist */,
@@ -352,6 +354,11 @@
 						DevelopmentTeam = 29AHJLC5RL;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					616D1E401F60BAA200FBCCDE = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -761,6 +768,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = 901wave/901wave.entitlements;
 				DEVELOPMENT_TEAM = 29AHJLC5RL;
 				INFOPLIST_FILE = 901wave/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -779,6 +787,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = 901wave/901wave.entitlements;
 				DEVELOPMENT_TEAM = 29AHJLC5RL;
 				INFOPLIST_FILE = 901wave/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
