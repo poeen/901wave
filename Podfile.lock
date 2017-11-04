@@ -91,7 +91,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   GeoFire:
-    :commit: 96d6463f59016785f9c5ae9b669019c44786a23f
+    :commit: 8c4a04b46dbb0959b91a9afd946798b5aeb8e8bf
     :git: https://github.com/firebase/geofire-objc.git
 
 SPEC CHECKSUMS:
@@ -106,7 +106,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: f2b688c66b972f30d7fa9f5f9f91455454a03b47
   FirebaseMessaging: 75d83375b0f7a9911568d7bdd1a1a8261cbcbdef
   FirebaseStorage: 0cca42d9b889a0227c3a50121f45a4469fc9eb27
-  GeoFire: 02f02683e09367c2eee073c6b09c794da19833ee
+  GeoFire: 12dde45333e02aace5a8d921749095b9135cabc1
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
