@@ -49,7 +49,10 @@ class DetailedVenue: UIViewController{
         waveRef.observe(.value, with: { snapshot in
             if let dictionary = snapshot.value as? [String:Any] {
                 self.wave = Wave(key: snapshot.key, data: dictionary as Dictionary<String, AnyObject>)
-                self.joinWaveButton.setImage(generateWaveImage(count: (self.wave?.count)!), for: UIControlState.normal)
+                self.venueName.text = self.wave?.title
+                self.venueAddress.text = self.wave?.address
+                self.venueContact.text = self.wave?.phoneNumber
+                //self.joinWaveButton.setImage(generateWaveImage(count: (self.wave?.count)!), for: UIControlState.normal)
             }
         })
         
@@ -90,11 +93,24 @@ class DetailedVenue: UIViewController{
                  */
                 if CLLocationDistance(distance!) < 100.0 {
                     print("success")
-                    let alert = UIAlertController(title: "Check In", message: "You successfully checked in into the event", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Plug In", style: UIAlertActionStyle.default, handler: nil))
+                    let alert = UIAlertController(title: "Check In", message: "You successfully joined the event", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Join the Wave", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
+                    let ref = Database.database().reference().child("WaveSpots").child("Memphis")
+                    let waveRef = Database.database().reference().child("Wave").child("Memphis")
+                        waveRef.child((wave?.key)!).child("count").observeSingleEvent(of: .value, with: { snapshot in
+                            if var number = snapshot.value as? Int{
+                                    number = number + 1
+                                    waveRef.child(self.wave!.key).child("count").setValue(number)
+                                    print(number)
+                                
+                            }
+                            
+                            
+                        })
+                    
                 } else {
-                    let alert = UIAlertController(title: "Check In", message: "You aren't currently at the event, please check in once you arrive.", preferredStyle: UIAlertControllerStyle.alert)
+                    let alert = UIAlertController(title: "Check In", message: "You aren't currently at the Venue, please check in once you arrive.", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
@@ -111,6 +127,7 @@ class DetailedVenue: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
        getDetails()
+        venueName.text = wave?.title
         let waveRef = Database.database().reference().child("Wave").child("Memphis").child(key!).child("Comments")
         waveRef.observe(.value, with: { snapshot in
             self.comments = []

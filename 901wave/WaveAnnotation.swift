@@ -8,4 +8,5 @@
 
 class WaveAnnotation: MKPointAnnotation {
     var key: String!
+    var count: Int!
 }

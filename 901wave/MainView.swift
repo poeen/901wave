@@ -57,7 +57,7 @@ class MainView: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         self.locationManager.requestAlwaysAuthorization()
-        locationManager.startMonitoringSignificantLocationChanges()
+        locationManager.startUpdatingLocation()
         getFacebookUserInfo()
         getProfilePic()
         profilePic.layer.borderWidth = 1
@@ -161,6 +161,7 @@ class MainView: UIViewController {
                             let annotation = WaveAnnotation()
                             if wave.location?.coordinate != nil {
                                 annotation.key = wave.key
+                                annotation.count = wave.count
                                 annotation.coordinate = (wave.location?.coordinate)!
                                 annotation.title = wave.title
                                 annotation.subtitle = wave.phoneNumber
@@ -178,25 +179,37 @@ class MainView: UIViewController {
     
     
     
-    
+    var visted = [String]()
+
     func counter(){
         let ref = Database.database().reference().child("WaveSpots").child("Memphis")
         let geoFire = GeoFire(firebaseRef: ref)
         let waveRef = Database.database().reference().child("Wave").child("Memphis")
         
-        
         geoFire?.query(at: userLocation, withRadius: 0.5).observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
         print("someone entered")
             waveRef.child(key).child("count").observeSingleEvent(of: .value, with: { snapshot in
                 if var number = snapshot.value as? Int{
-                    number = number + 1
-                    waveRef.child(key).child("count").setValue(number)
-                    print(number)
+                    var exist = false
+                    for i in self.visted {
+                        if i == key {
+                            exist = true
+
+                        }
+                    }
+                    if exist == false {
+                        number = number + 1
+                        waveRef.child(key).child("count").setValue(number)
+                        print(number)
+                        self.visted.append(key)
+                    }
                 }
 
                 
             })
         })
+        locationManager.stopUpdatingLocation()
+        locationManager.startMonitoringSignificantLocationChanges()
     }
         /*
             waveRef.child(key).child("count").runTransactionBlock({ (snap) -> TransactionResult in
@@ -404,10 +417,10 @@ extension MainView : MKMapViewDelegate {
         }
         
 
-        let k = arc4random_uniform(130)
+       
 
         let waveAnnotation = annotation as! WaveAnnotation
-        annotationView?.image = generateWaveImage(count: Int(k))
+        annotationView?.image = generateWaveImage(count: waveAnnotation.count)
         let smallSquare = CGSize(width: 40, height: 40)
         let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
         button.setBackgroundImage(UIImage(named:"Join Wave_"), for: UIControlState())

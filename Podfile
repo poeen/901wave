@@ -6,13 +6,13 @@ target '901wave' do
   use_frameworks!
 
   # Pods for 901wave
-pod 'Firebase/Core'
+  #pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Storage'
 pod 'FBSDKLoginKit'
 pod 'SwiftKeychainWrapper'
-#pod 'IQKeyboardManagerSwift'
+pod 'IQKeyboardManagerSwift'
 pod 'Firebase/Messaging'
 pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
 

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import FBSDKCoreKit
-//import IQKeyboardManagerSwift
+import IQKeyboardManagerSwift
 import UserNotifications
 import FirebaseMessaging
 import FirebaseInstanceID
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-          //IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().enable = true
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         locationManager = CLLocationManager()
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
-            UNUserNotificationCenter.current().delegate = self as! UNUserNotificationCenterDelegate
+            UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
             
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(
