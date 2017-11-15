@@ -103,7 +103,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJ4-kV-fOx">
-                                <rect key="frame" x="163" y="35" width="88" height="89"/>
+                                <rect key="frame" x="163" y="79" width="88" height="89"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="89" id="DEq-Ha-d0O"/>
@@ -574,8 +574,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMf-1N-Kfi">
-                                <rect key="frame" x="110" y="37" width="156" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMf-1N-Kfi">
+                                <rect key="frame" x="129" y="40" width="156" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27.5" id="k6x-xR-Rbs"/>
                                 </constraints>
@@ -592,7 +592,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5pz-e5-gaF" id="vHd-fR-g7D">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="104.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Coment" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx3-Dz-NPg">
@@ -608,7 +608,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.25205916169999998" green="0.27400213480000002" blue="0.3005196154" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="KEq-OR-HCl" secondAttribute="bottom" constant="0.5" id="0rV-Tk-2hr"/>
                                                 <constraint firstItem="Rx3-Dz-NPg" firstAttribute="leading" secondItem="vHd-fR-g7D" secondAttribute="leading" constant="8" id="Jc1-MK-BSX"/>
@@ -618,6 +619,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Rx3-Dz-NPg" secondAttribute="trailing" constant="8" id="wSc-55-BGH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="fullCommentLabel" destination="Rx3-Dz-NPg" id="Wlz-CY-Q9S"/>
@@ -652,6 +654,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="89" id="DsN-wP-uVG"/>
                                 </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -670,7 +673,7 @@
                             <constraint firstAttribute="trailing" secondItem="sSb-vj-bic" secondAttribute="trailing" id="Atk-dE-nVT"/>
                             <constraint firstAttribute="trailing" secondItem="Nhq-mr-39t" secondAttribute="trailing" id="Chc-Ii-WGr"/>
                             <constraint firstItem="Ng4-xy-pkw" firstAttribute="top" secondItem="pez-lf-Eza" secondAttribute="bottom" constant="8" id="O9U-KC-s7k"/>
-                            <constraint firstItem="HMf-1N-Kfi" firstAttribute="top" secondItem="efG-vi-sNc" secondAttribute="bottom" id="W0Q-LC-k65"/>
+                            <constraint firstItem="HMf-1N-Kfi" firstAttribute="top" secondItem="efG-vi-sNc" secondAttribute="bottom" constant="20" id="W0Q-LC-k65"/>
                             <constraint firstItem="Ng4-xy-pkw" firstAttribute="centerX" secondItem="6LT-8p-bTp" secondAttribute="centerX" id="cgF-Vo-7r7"/>
                             <constraint firstItem="Nhq-mr-39t" firstAttribute="leading" secondItem="6LT-8p-bTp" secondAttribute="leading" id="cm0-5O-hd9"/>
                             <constraint firstItem="Nhq-mr-39t" firstAttribute="top" secondItem="sSb-vj-bic" secondAttribute="bottom" id="dhZ-Ai-Mba"/>
@@ -680,7 +683,7 @@
                             <constraint firstItem="Nhq-mr-39t" firstAttribute="centerX" secondItem="6LT-8p-bTp" secondAttribute="centerX" id="lhB-kz-Gmu"/>
                             <constraint firstItem="Bvu-0l-ox9" firstAttribute="top" secondItem="Ng4-xy-pkw" secondAttribute="bottom" constant="17" id="mlU-XL-Hvr"/>
                             <constraint firstItem="pez-lf-Eza" firstAttribute="top" secondItem="Nhq-mr-39t" secondAttribute="bottom" constant="8" id="sOA-ag-F27"/>
-                            <constraint firstItem="sSb-vj-bic" firstAttribute="top" secondItem="HMf-1N-Kfi" secondAttribute="bottom" constant="42" id="ts7-et-W0B"/>
+                            <constraint firstItem="sSb-vj-bic" firstAttribute="top" secondItem="HMf-1N-Kfi" secondAttribute="bottom" constant="22" id="ts7-et-W0B"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ng4-xy-pkw" secondAttribute="trailing" constant="112" id="ztN-yy-GUY"/>
                         </constraints>
                     </view>
@@ -781,10 +784,10 @@
         <image name="Wave Logo" width="244" height="105"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yAc-Vx-6Lp"/>
+        <segue reference="ehD-PI-saM"/>
+        <segue reference="iHH-uq-qEC"/>
         <segue reference="C6i-xq-ZuU"/>
         <segue reference="LqK-0Z-1bx"/>
         <segue reference="6Gk-h5-aF1"/>
-        <segue reference="ehD-PI-saM"/>
     </inferredMetricsTieBreakers>
 </document>
