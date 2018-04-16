@@ -62,7 +62,7 @@
 		6120FFCB1FA661F7002F315E /* aboutOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aboutOne.swift; sourceTree = "<group>"; };
 		6120FFCD1FA66206002F315E /* aboutTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aboutTwo.swift; sourceTree = "<group>"; };
 		6120FFCF1FA6623A002F315E /* aboutThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aboutThree.swift; sourceTree = "<group>"; };
-		6120FFD11FA6A393002F315E /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationSearchTable.swift; path = "../../../../../Downloads/MapKitTutorial-master/MapKitTutorial/LocationSearchTable.swift"; sourceTree = "<group>"; };
+		6120FFD11FA6A393002F315E /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		616D1E2D1F60BAA200FBCCDE /* 901wave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 901wave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		616D1E301F60BAA200FBCCDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		616D1E321F60BAA200FBCCDE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		61A379E01F86EEB800EEA05D /* WaveAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveAnnotation.swift; sourceTree = "<group>"; };
 		61BC70081F89AB1900D4DA1D /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		61BC700A1F8C07A500D4DA1D /* DetailedVenueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedVenueView.swift; sourceTree = "<group>"; };
-		61BC700E1F8C359100D4DA1D /* WaveGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaveGenerator.swift; path = ../../../../../Downloads/WaveGenerator.swift; sourceTree = "<group>"; };
+		61BC700E1F8C359100D4DA1D /* WaveGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveGenerator.swift; sourceTree = "<group>"; };
 		7434936214AA0277EE87F4CA /* Pods-901wave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-901wave.debug.xcconfig"; path = "Pods/Target Support Files/Pods-901wave/Pods-901wave.debug.xcconfig"; sourceTree = "<group>"; };
 		745B76C31FA7E9020001BDEA /* 901wave.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 901wave.entitlements; sourceTree = "<group>"; };
 		7469284B1F75D8B200973845 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
