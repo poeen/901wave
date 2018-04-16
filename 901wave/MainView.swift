@@ -333,8 +333,7 @@ class MainView: UIViewController {
         
     }
     
-    
-    
+ 
     func getDirections(){
         //selectedMapItem = Event(title: locationTitle, address: address!)
         self.performSegue(withIdentifier: "venue", sender: self)
@@ -366,7 +365,7 @@ extension MainView : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         userLocation = location
-        let span = MKCoordinateSpanMake(0.04, 0.04)
+        let span = MKCoordinateSpanMake(0.01, 0.01)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
         mapView.setRegion(region, animated:false)
         let georef = Database.database().reference().child("UserLocations")
@@ -420,8 +419,9 @@ extension MainView : MKMapViewDelegate {
        
 
         let waveAnnotation = annotation as! WaveAnnotation
-        annotationView?.image = generateWaveImage(count: waveAnnotation.count)
-        let smallSquare = CGSize(width: 40, height: 40)
+        let waveImage = generateWaveImage(count: waveAnnotation.count)
+        annotationView?.image = waveImage
+        let smallSquare = CGSize(width: 30, height: 30)
         let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
         button.setBackgroundImage(UIImage(named:"Join Wave_"), for: UIControlState())
         button.addTarget(self, action: #selector(MainView.getDirections), for: .touchUpInside)

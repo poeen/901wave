@@ -14,13 +14,24 @@ class CommmentVC:UIViewController {
     @IBOutlet weak var fullCommentTableView: UITableView!
     @IBOutlet weak var addCommentBox: UITextView!
     
+    @IBOutlet weak var submitBtn: UIButton!
     
     var waveKey:String?
     
     
     @IBAction func submitButtonPressed(_ sender: Any) {
+        if addCommentBox.text == "" {
+            let alertController = UIAlertController(title: "Error", message: "Please enter a comment", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            present(alertController, animated: true, completion: nil)
+            
+        } else {
         sendCommentToDatabase()
         performSegue(withIdentifier: "aftersubmit", sender: nil)
+        }
     }
     
     func sendCommentToDatabase(){
@@ -59,6 +70,10 @@ class CommmentVC:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        submitBtn.layer.cornerRadius = 10
+        submitBtn.layer.borderWidth = 1
+        submitBtn.layer.borderColor = UIColor.black.cgColor
+        
         let waveRef = Database.database().reference().child("Wave").child("Memphis").child(waveKey!).child("Comments")
         waveRef.observe(.value, with: { snapshot in
             self.comments = []
@@ -88,6 +103,22 @@ extension CommmentVC:UITableViewDelegate {
         
         return cell!
         
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.comments.remove(at: indexPath.row)
+            DataService.ds.Ref_Agendas.child(waveKey!).child("Comments").observeSingleEvent(of: .value, with: { snapshot in
+                
+                    let commentKey = snapshot.key as? String
+                    print(commentKey)
+                    tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
+                    
+                    //DataService.ds.Ref_Agendas.child(self.waveKey!).child("Comments").child(commentKey!).removeValue()
+                    print(commentKey)
+                
+            })
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -44,13 +44,48 @@ class DetailedVenue: UIViewController{
     var latitude:CLLocationDegrees?
     var longitude:CLLocationDegrees?
     
+    
+    func parseAddress(selectedItem:MKPlacemark) -> String {
+       
+        // put a space between "4" and "Melrose Place"
+        let firstSpace = (selectedItem.subThoroughfare != nil &&
+            selectedItem.thoroughfare != nil) ? " " : ""
+        
+        // put a comma between street and city/state
+        let comma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil) &&
+            (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? ", " : ""
+        
+        // put a space between "Washington" and "DC"
+        let secondSpace = (selectedItem.subAdministrativeArea != nil &&
+            selectedItem.administrativeArea != nil) ? " " : ""
+        
+        let addressLine = String(
+            format:"%@%@%@%@%@%@%@",
+            // street number
+            selectedItem.subThoroughfare ?? "",
+            firstSpace,
+            // street name
+            selectedItem.thoroughfare ?? "",
+            comma,
+            // city
+            selectedItem.locality ?? "",
+            secondSpace,
+            // state
+            selectedItem.administrativeArea ?? ""
+        )
+        
+        return addressLine
+    }
+    
     func getDetails(){
         let waveRef = Database.database().reference().child("Wave").child("Memphis").child(key!)
         waveRef.observe(.value, with: { snapshot in
             if let dictionary = snapshot.value as? [String:Any] {
                 self.wave = Wave(key: snapshot.key, data: dictionary as Dictionary<String, AnyObject>)
                 self.venueName.text = self.wave?.title
-                self.venueAddress.text = self.wave?.address
+                let address = self.wave?.address
+                let newaddress = address?.trimmingCharacters(in: CharacterSet(charactersIn: ", United States"))
+                self.venueAddress.text = newaddress
                 self.venueContact.text = self.wave?.phoneNumber
                 //self.joinWaveButton.setImage(generateWaveImage(count: (self.wave?.count)!), for: UIControlState.normal)
             }
